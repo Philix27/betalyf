@@ -3,7 +3,6 @@
 import React from "react"
 import { useRouter } from "next/navigation"
 import { Button, TextB, TextH } from "@/comps"
-import { AppPages } from "@/lib"
 import { Github } from "lucide-react"
 
 import FooterSection from "./footer"
