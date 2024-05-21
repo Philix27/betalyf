@@ -17,7 +17,7 @@ struct Invoice {
 
 enum Status {Pending, Paid, Rejected}
 
-contract Xpensa {
+contract Peerie {
     address public owner;
     uint public invoiceIndex = 0;
     bool private locked;

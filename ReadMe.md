@@ -1,6 +1,6 @@
-# Gringo
+# Peerie
 
-## Problem
+### Problem
 
 In today's rapidly evolving financial landscape, there's a growing awareness of the critical importance of managing personal finances. This awareness stems from various factors such as economic uncertainties, shifting job markets, and an emphasis on financial literacy. As individuals navigate these complexities, they understand the significance of saving and investing their funds wisely.
 
@@ -36,44 +36,43 @@ But that's not all! Xpensa goes above and beyond by streamlining your invoicing 
 
 Experience the power of Xpensa and take your financial management to new heights. Say hello to simplicity, efficiency, and peace of mind.
 
-## Short description
+### Short description
 
 The increasing awareness of personal finance management underscores the need for individuals to not only save their funds seamlessly but also to leverage efficient invoicing practices. By doing so, they can navigate the complexities of today's financial landscape with confidence and achieve their long-term financial goals.
 
-## How it was made
+### How it was made
 
 This project was made using Next.js for the frontend and Trpc + Prisma + Postgres for the backend.
 --Graphics needed to explain how they all connect
 
-## Tools
+### Tools
 
-- Next.js, React, Wagmi, Solitidy, Remix, Typescript
+- Next.js, React, Wagmi, Solidity, Remix, Typescript
 
-## Languages
+### Languages
 
-- Typescript, Solidity, Go
+- Typescript, Solidity
 
-## Frameworks used
+### Frameworks used
 
 - Next.js, Trpc, Solidity, Wagmi
 
-## Instructions
+### Instructions
 
 - Clone the repository from github
-- Run `cd client` to navigate into the client folder
 - Run `yarn install` to install all packages
 - Run `yarn dev` to start the Next.js server
 - 
-## Screenshots
+### Screenshots
 
-## Links
+### Links
 
-- Github link
+- [Github link](https://github.com/Philix27/peerie)
+- [Vercel link](https://peerie.vercel.app/)
 - Video link
-- Vercel link
 
 
-Problem
+### Problem
 
 Buying of digital goods has always been a challenge especially for third world countries where
 there is inadequate access to technology required to make purchase seamless.

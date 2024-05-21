@@ -3,9 +3,10 @@
 import React from "react"
 import { useRouter } from "next/navigation"
 import { Button, TextB, TextH } from "@/comps"
+import { AppPages } from "@/lib"
+import { Github } from "lucide-react"
 
 import FooterSection from "./footer"
-import HeroCenter from "./heroC"
 
 export default function HomeClient() {
   const router = useRouter()
@@ -45,9 +46,11 @@ export default function HomeClient() {
               your day to day expenses and financial records.
             </TextB>
           </div>
-          <Button className="mt-4" onClick={() => router.push("/chat")}>
-            SignUp
-          </Button>
+          <div className={"flex gap-x-2"}>
+            <Button className="mt-4">
+              <Github size={17} className="mr-2" /> Sign-in with Github
+            </Button>
+          </div>
         </div>
       </div>
       <FooterSection />
