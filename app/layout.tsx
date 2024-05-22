@@ -1,7 +1,6 @@
 import "@/lib/styles/globals.css"
 // import "@rainbow-me/rainbowkit/styles.css"
 import { AppProviders, cn, fontSans } from "@/lib"
-
 import { NavbarHeader } from "./comps/navbar"
 
 interface RootLayoutProps {
@@ -13,10 +12,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html lang="en" suppressHydrationWarning>
       <head />
       <body
-        className={cn(
-          "min-h-screen font-sans antialiased",
-          fontSans.variable
-        )}
+        className={cn("min-h-screen font-sans antialiased", fontSans.variable)}
       >
         <AppProviders>
           <div className="relative flex min-h-screen flex-col bg-background">

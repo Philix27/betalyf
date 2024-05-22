@@ -1,14 +1,17 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
 import { useRouter } from "next/navigation"
 import { Button, TextB, TextH } from "@/comps"
 import { Github } from "lucide-react"
 
+import SocialConnectUI from "./SocialConnectUI"
 import FooterSection from "./footer"
 
 export default function HomeClient() {
   const router = useRouter()
+  const [showSocialCon, setShowSocialCon] = useState(false)
+
   return (
     <div className="w-full m-0 p-0 flex flex-col justify-between">
       {/* <section className="w-full m-0 p-0 flex flex-col"> */}
@@ -46,12 +49,25 @@ export default function HomeClient() {
             </TextB>
           </div>
           <div className={"flex gap-x-2"}>
-            <Button className="mt-4">
+            <Button
+              className="mt-4"
+              onClick={() => {
+                setShowSocialCon(true)
+              }}
+            >
               <Github size={17} className="mr-2" /> Sign-in with Github
             </Button>
           </div>
         </div>
       </div>
+      {showSocialCon && (
+        <SocialConnectUI
+          isOpen={showSocialCon}
+          closeModal={() => {
+            setShowSocialCon(false)
+          }}
+        />
+      )}
       <FooterSection />
     </div>
   )
