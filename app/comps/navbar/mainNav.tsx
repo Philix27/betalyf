@@ -32,7 +32,7 @@ export function NavbarHeader({ items }: MainNavProps) {
       <div className="container flex h-[60px] items-center justify-between">
         <div className="flex gap-6 md:gap-10 ">
           <Link href="/" className="flex items-center space-x-2">
-            <span className="inline-block font-bold">{siteConfig.name}</span>
+            <span className="inline-block font-bold text-primary-foreground">{siteConfig.name}</span>
           </Link>
         </div>
 

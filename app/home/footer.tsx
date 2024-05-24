@@ -9,9 +9,9 @@ export default function FooterSection() {
   return (
     <div
       className={`
-      w-full border-t-[1px] border-primary h-[50px]`}
+      w-full  py-4`}
     >
-      <div className="pt-2 h-full flex items-center justify-around w-full">
+      <div className="flex items-center justify-around w-full">
         <div className={"flex gap-x-4"}>
           <Github />
           <LinkedinIcon />
