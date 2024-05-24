@@ -5,10 +5,13 @@ import { usePathname, useRouter } from "next/navigation"
 import { TextB } from "@/comps"
 import { cn } from "@/lib"
 import {
+  BookIcon,
   Cog,
+  HomeIcon,
   LucideDollarSign,
   LucideIcon,
   MessageCircle,
+  SearchIcon,
   UserCog,
 } from "lucide-react"
 
@@ -25,27 +28,31 @@ export function BottomNav() {
 
   return (
     <div
-      className={
-        "fixed bottom-0 h-[60px] border-t-[0.5px] border-accent w-full bg-primary"
-      }
+      className={`
+        fixed bottom-0 h-[60px] 
+        border-t-[0.5px] border-accent 
+        w-full flex items-center justify-center 
+      `}
     >
-      <div className="flex justify-between items-center w-full px-8 py-2 h-full">
+      <div
+        className={`
+      flex justify-between items-center
+      px-8 py-2 w-[70%] mb-4
+      bg-primary rounded-[50px]`}
+      >
         {navItems.map(({ Icon, title, link }, i) => {
           return (
             <div
               onClick={() => router.push(link)}
               key={i}
               className={cn(
-                `h-full 
-              flex flex-col items-center justify-center 
-              w-full rounded-[25px]`,
+                `size-[40px] 
+              flex flex-col items-center justify-center
+              rounded-[15px]`,
                 isActive(link) ? "bg-secondary" : "bg-primary"
               )}
             >
-              <Icon className={"text-primary-foreground mb-2"} size={18} />
-              <TextB v="p6" className={"text-primary-foreground"}>
-                {title}
-              </TextB>
+              <Icon className={"text-primary-foreground"} size={20} />
             </div>
           )
         })}
@@ -55,23 +62,23 @@ export function BottomNav() {
 }
 const navItems: { title: string; Icon: LucideIcon; link: string }[] = [
   {
-    title: "Chat",
-    link: "/chat",
-    Icon: MessageCircle,
+    title: "Dashboard",
+    link: "/dashboard",
+    Icon: HomeIcon,
   },
   {
-    title: "Market",
-    link: "/market",
-    Icon: LucideDollarSign,
+    title: "Search",
+    link: "/search",
+    Icon: SearchIcon,
   },
   {
-    title: "History",
-    link: "/transactions",
-    Icon: UserCog,
+    title: "Appointments",
+    link: "/meetings",
+    Icon: BookIcon,
   },
   {
-    title: "Settings",
-    link: "/settings",
+    title: "Profile",
+    link: "/profile",
     Icon: Cog,
   },
 ]

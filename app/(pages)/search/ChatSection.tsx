@@ -55,7 +55,7 @@ export default function ChatSection(props: {
         <div>Messages</div>
         <div className="absolute bottom-0 w-full">
           <div className="w-full flex items-center justify-center mb-4">
-            <InputText Icon={SendIcon} />
+            <InputText Icon={SendIcon} placeH={"Search for a friend"} />
           </div>
         </div>
       </div>

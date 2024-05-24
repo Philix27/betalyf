@@ -3,7 +3,7 @@
 import React, { useState } from "react"
 import { useRouter } from "next/navigation"
 import { Button, TextB, TextH } from "@/comps"
-import { Github, Stethoscope } from "lucide-react"
+import { Stethoscope } from "lucide-react"
 
 import FooterSection from "./footer"
 
