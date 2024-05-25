@@ -15,22 +15,4 @@ export const userRouter = router({
         },
       })
     }),
-
-  create: publicProcedure
-    .input(
-      z.object({
-        title: z.string(),
-        description: z.string(),
-        category: z.string(),
-      })
-    )
-    .mutation(async ({ ctx, input }) => {
-      return await ctx.prisma.user.create({
-        data: {
-          title: input.title,
-          desc: input.description,
-          category: input.category,
-        },
-      })
-    }),
 })
