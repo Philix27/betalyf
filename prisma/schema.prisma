@@ -15,7 +15,8 @@ model User {
   email          String        @unique
   img            String?
   country        String?
-  allergies      String[]
+  allergies      String
+  isMale         Boolean
   age            Int
   wallet_address String        @unique
   //Relationships
@@ -34,9 +35,8 @@ model Clinician {
   email          String        @unique
   img            String?
   country        String?
-  allergies      String[]
-  age            Int
   wallet_address String        @unique
+  isMale         Boolean
   //Relationships
   appointments   Appointment[]
   // essential
