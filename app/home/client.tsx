@@ -3,27 +3,33 @@
 import React, { useState } from "react"
 import { useRouter } from "next/navigation"
 import { Button, TextB, TextH } from "@/comps"
+import { cn } from "@/lib"
 import { Stethoscope } from "lucide-react"
 
 import FooterSection from "./footer"
+import styles from "./styles.module.css"
 
 export default function HomeClient() {
   const router = useRouter()
 
   return (
     <div
-      className={`
+      className={cn(
+        `
       w-full m-0 p-0 
       flex flex-col 
       justify-end items-center 
       h-[calc(100vh-60px)]
-    `}
+    `,
+        styles.container
+      )}
     >
       <div
         className={`
         p-4 flex flex-col bg-card
         w-[80%] 
         text-center rounded-2xl gap-y-3
+        mb-8
       `}
       >
         <TextH v="h1" className={"text-[24px] md:text-[50px]"}>
@@ -43,6 +49,7 @@ export default function HomeClient() {
           </Button>
         </div>
       </div>
+
       <FooterSection />
     </div>
   )

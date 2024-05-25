@@ -22,7 +22,25 @@ export class AppImg {
     sun: "/grento/sun.jpg",
   }
 
-  static solarPanel = {}
-  static solarBattery = {}
-  static solarInverter = {}
+  static med = {
+    cup: "/med/cup.jpg",
+    dental: "/med/dental.jpg",
+    emoji_love: "/med/emoji_love.png",
+    fem_scope: "/med/fem_scope.jpg",
+    femald: "/med/femald.jpg",
+    foldhands: "/med/foldhands.jpg",
+    frond_dr: "/med/frond_dr.jpg",
+    frontd: "/med/frontd.jpg",
+    halfBlack: "/med/half_black.jpg",
+    lock: "/med/lock.png",
+    one_tab: "/med/one_tab.jpg",
+    pead: "/med/pead.jpg",
+    phone_lock: "/med/phone_lock.png",
+    stethoscope: "/med/stethoscope.png",
+    tablet: "/med/tablets.png",
+    test: "/med/test.png",
+    therapy: "/med/therapy.jpg",
+    wallet: "/med/wallet.png",
+    whiteFile: "/med/white_file.png",
+  }
 }

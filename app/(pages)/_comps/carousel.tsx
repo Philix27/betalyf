@@ -40,9 +40,9 @@ export function SlidingCarousel() {
 }
 
 const data = [
-  { img: AppImg.green.field },
-  { img: AppImg.green.grid },
-  { img: AppImg.green.sun },
-  { img: AppImg.green.homes },
-  { img: AppImg.green.workers },
+  { img: AppImg.med.foldhands },
+  { img: AppImg.med.one_tab },
+  { img: AppImg.med.therapy },
+  { img: AppImg.med.cup },
+  { img: AppImg.med.dental },
 ]

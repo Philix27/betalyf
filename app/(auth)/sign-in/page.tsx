@@ -4,18 +4,28 @@ import React from "react"
 import { useRouter } from "next/navigation"
 import { InputText } from "@/(pages)/_comps"
 import { Button, TextB, TextH } from "@/comps"
+import { cn } from "@/lib"
+
+import styles from "./styles.module.css"
 
 export default function SignInPage() {
   const router = useRouter()
   return (
     <div
-      className={`
+      className={cn(
+        `
     w-full h-[calc(100vh-60px)] 
       flex flex-col items-center justify-center
-
-    `}
+    `,
+        styles.container
+      )}
     >
-      <div className="w-[70%] flex flex-col gap-y-4 items-center justify-center text-center">
+      <div className={`
+        w-[70%] flex flex-col gap-y-4 
+        items-center justify-center 
+        text-center rounded-2xl bg-background
+        p-3
+      `}>
         <TextH>Register with us</TextH>
         <TextB v="p4">Have free access to over 100 physicians</TextB>
         <div
