@@ -3,37 +3,59 @@ import { $Enums } from "@prisma/client"
 import { z } from "zod"
 
 export const appointmentRouter = router({
-  getInfo: publicProcedure
+  getAll: publicProcedure
+    .input(z.object({ userId: z.string() }))
+    .query(async ({ ctx, input }) => {
+      return await ctx.prisma.appointment.findFirst({
+        where: {
+          user_id: input.userId,
+        },
+      })
+    }),
+  getOne: publicProcedure
     .input(z.object({ id: z.string() }))
     .query(async ({ ctx, input }) => {
-      return await ctx.prisma.clinician.findFirst({
+      return await ctx.prisma.appointment.findFirst({
         where: {
           id: input.id,
+          user_id: input.id,
         },
       })
     }),
 
-  register: publicProcedure
+  create: publicProcedure
     .input(
       z.object({
-        email: z.string(),
-        firstName: z.string(),
-        lastName: z.string(),
-        walletAddress: z.string(),
-        country: z.string().optional(),
-        department: z.nativeEnum($Enums.DEPARTMENT),
-        isMale: z.boolean(),
+        title: z.string(),
+        userId: z.string(),
+        clinicianId: z.string(),
+        status: z.nativeEnum($Enums.APPOINTMENT_STATUS),
       })
     )
     .mutation(async ({ ctx, input }) => {
-      return await ctx.prisma.clinician.create({
+      return await ctx.prisma.appointment.create({
         data: {
-          email: input.email,
-          lastname: input.lastName,
-          wallet_address: input.walletAddress,
-          firstname: input.firstName,
-          department: input.department,
-          isMale: input.isMale,
+          status: input.status,
+          title: input.title,
+          user_id: input.userId,
+          clinician_id: input.clinicianId,
+        },
+      })
+    }),
+  update: publicProcedure
+    .input(
+      z.object({
+        appointmentId: z.string(),
+        status: z.nativeEnum($Enums.APPOINTMENT_STATUS),
+      })
+    )
+    .mutation(async ({ ctx, input }) => {
+      return await ctx.prisma.appointment.update({
+        where: {
+          id: input.appointmentId,
+        },
+        data: {
+          status: input.status,
         },
       })
     }),

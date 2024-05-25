@@ -60,8 +60,6 @@ model Appointment {
   // Personal info
   status       APPOINTMENT_STATUS
   title        String
-  physician    String
-  patient      String             @unique
   user_id      String?
   user         User?              @relation(fields: [user_id], references: [id])
   clinician_id String?
