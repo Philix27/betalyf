@@ -12,60 +12,89 @@ model User {
   // Personal info
   firstname      String
   lastname       String
-  email          String
+  email          String        @unique
   img            String?
-  wallet_address String    @unique
-  // Bank
-  bank_name      String
-  bank_number    String
-  payment_method String
-  trades_count   Int
+  country        String?
+  allergies      String[]
+  age            Int
+  wallet_address String        @unique
   //Relationships
-  orders         Orders[]
+  appointments   Appointment[]
   // essential
-  id             String    @id @default(uuid())
-  created_at     DateTime? @default(now())
-  updated_at     DateTime? @updatedAt
+  id             String        @id @default(uuid())
+  created_at     DateTime?     @default(now())
+  updated_at     DateTime?     @updatedAt
 }
 
-// model Vendors {
-//   rate           String
-//   payment_method String
-//   limit          String
-//   type           ExchangeType
-//   id             String       @id @default(uuid())
-//   created_at     DateTime?    @default(now())
-//   updated_at     DateTime?    @updatedAt
-// }
+model Clinician {
+  // Personal info
+  department     DEPARTMENT
+  lastname       String
+  firstname      String
+  email          String        @unique
+  img            String?
+  country        String?
+  allergies      String[]
+  age            Int
+  wallet_address String        @unique
+  //Relationships
+  appointments   Appointment[]
+  // essential
+  id             String        @id @default(uuid())
+  created_at     DateTime?     @default(now())
+  updated_at     DateTime?     @updatedAt
+}
 
-model Exchange {
-  rate           String
-  payment_method String
-  limit          String
-  id             String    @id @default(uuid())
-  created_at     DateTime? @default(now())
-  updated_at     DateTime? @updatedAt
+enum DEPARTMENT {
+  DOCTOR
+  PHARMACIST
+  NURSE
+  DENTIST
+  THERAPIST
+  PHYSIO
+  PEADIATRICS
+  EMERGENCY
+}
+
+model Appointment {
+  // Personal info
+  status       APPOINTMENT_STATUS
+  title        String
+  physician    String
+  patient      String             @unique
+  user_id      String?
+  user         User?              @relation(fields: [user_id], references: [id])
+  clinician_id String?
+  clinician    Clinician?         @relation(fields: [clinician_id], references: [id])
+  // essential
+  id           String             @id @default(uuid())
+  created_at   DateTime?          @default(now())
+  updated_at   DateTime?          @updatedAt
+}
+
+enum APPOINTMENT_STATUS {
+  PENDING
+  COMPLETED
+  CANCELED
+}
+
+model Drugs {
+  // essential
+  id         String    @id @default(uuid())
+  created_at DateTime? @default(now())
+  updated_at DateTime? @updatedAt
+}
+
+model Cart {
+  // essential
+  id         String    @id @default(uuid())
+  created_at DateTime? @default(now())
+  updated_at DateTime? @updatedAt
 }
 
 model Orders {
-  status     OrderStatus
-  type       ExchangeType
-    // relationships
-  user_id    String?
-  user       User?        @relation(fields: [user_id], references: [id])
   // essential
-  id         String       @id @default(uuid())
-  created_at DateTime?    @default(now())
-  updated_at DateTime?    @updatedAt
-}
-
-enum OrderStatus {
-  COMPLETED
-  PENDING
-  DECLINE
-}
-
-enum ExchangeType {
-  BUY
-  SELL
+  id         String    @id @default(uuid())
+  created_at DateTime? @default(now())
+  updated_at DateTime? @updatedAt
 }
