@@ -85,14 +85,14 @@ export function AppProviders(props: { children: ReactNode }) {
       <WagmiProvider config={rainbowConfig}>
         <QueryClientProvider client={queryClient}>
           <RainbowKitProvider>
-            <SessionProvider>
-              <TrpcProvider>
-                <SettingsContext.Provider value={{ isOpen, setOpen }}>
-                  {props.children}
-                  <Toaster className={"bg-primary"} />
-                </SettingsContext.Provider>
-              </TrpcProvider>
-            </SessionProvider>
+            {/* <SessionProvider> */}
+            <TrpcProvider>
+              <SettingsContext.Provider value={{ isOpen, setOpen }}>
+                {props.children}
+                <Toaster className={"bg-primary"} />
+              </SettingsContext.Provider>
+            </TrpcProvider>
+            {/* </SessionProvider> */}
           </RainbowKitProvider>
         </QueryClientProvider>
       </WagmiProvider>

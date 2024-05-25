@@ -30,7 +30,7 @@ export function BottomNav() {
     <div
       className={`
         fixed bottom-0 h-[60px] 
-        border-t-[0.5px] border-accent 
+        border-t-[0.5px] 
         w-full flex items-center justify-center 
       `}
     >

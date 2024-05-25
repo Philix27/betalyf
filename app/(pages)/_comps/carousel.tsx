@@ -1,3 +1,4 @@
+"use client"
 import React from "react"
 
 import "react-responsive-carousel/lib/styles/carousel.min.css"
@@ -5,14 +6,14 @@ import { AppImg } from "@/lib"
 // requires a loader
 import { Carousel } from "react-responsive-carousel"
 
-export default function SlidingCarousel() {
+export function SlidingCarousel() {
   return (
     <div
       className={`
-        max-h-[15vh] w-full h-[15vh] rounded-xl mt-2 md:mt-8
+        max-h-[200px] w-full h-[200px] rounded-xl mt-2 md:mt-8
     `}
     >
-          <Carousel
+      <Carousel
         className="w-full rounded-xl"
         autoPlay={true}
         // centerMode={true}
@@ -29,7 +30,7 @@ export default function SlidingCarousel() {
         autoFocus={true}
       >
         {...data.map((val, i) => (
-          <div className="w-full h-[15vh] md:h-[500px] rounded-xl" key={i}>
+          <div className="w-full h-[200px] md:h-[500px] rounded-xl" key={i}>
             <img src={val.img} className="w-full h-full rounded-xl" />
           </div>
         ))}

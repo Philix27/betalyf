@@ -42,13 +42,13 @@ export default function ProductsSection() {
           className={"flex-grow bg-green-600"}
           onClick={() => setSalesToShow("BUY")}
         >
-          Buy
+          Pending
         </Button>
         <Button
           className={"flex-grow bg-red-600"}
           onClick={() => setSalesToShow("SELL")}
         >
-          Sell
+          Completed
         </Button>
       </div>
       <div
@@ -60,7 +60,7 @@ export default function ProductsSection() {
       >
         {getList().concat(getList(), getList()).map((item, i) => (
           <div
-            className={"md:mx-4 rounded-md bg-primary p-3 mb-2"}
+            className={"md:mx-4 rounded-md bg-card p-3 mb-2"}
             key={i}
             onClick={() => router.push(`/products/${i}`)}
           >
@@ -106,7 +106,7 @@ function RowText(props: { title: string; subtitle: string }) {
   return (
     <div className="flex items-center justify-between">
       <TextH v="h5">{props.title}</TextH>
-      <TextB className={"text-primary-foreground"}>{props.subtitle}</TextB>
+      <TextB className={"text-card-foreground"}>{props.subtitle}</TextB>
     </div>
   )
 }

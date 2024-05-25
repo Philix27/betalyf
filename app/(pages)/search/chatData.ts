@@ -2,28 +2,33 @@ import { AppImg } from "@/lib"
 
 export type IChatData = {
   name: string
-  lastSeen: string
+  department: string
   img: string
 }
 export const chatData: IChatData[] = [
   {
-    name: "Chuks Okolie",
-    lastSeen: "5:00pm",
+    name: "Dr. Chuks Okolie",
+    department: "Peadiatric",
     img: AppImg.secure,
   },
   {
-    name: "Lena Hertz",
-    lastSeen: "Yeserday",
+    name: "Nurs. Lena Hertz",
+    department: "Emergency",
     img: AppImg.block,
   },
   {
-    name: "Millie Bobbie",
-    lastSeen: "16 May, 2024",
+    name: "Dr. Millie Bobbie",
+    department: "Orthopedic",
     img: AppImg.green.homes,
   },
   {
-    name: "Raymond Lin",
-    lastSeen: "15 May",
+    name: "Dr. Raymond Lin",
+    department: "Obstetrics",
+    img: AppImg.creditCard,
+  },
+  {
+    name: "Pharm. Raymond Lin",
+    department: "Pharmacy",
     img: AppImg.creditCard,
   },
 ]

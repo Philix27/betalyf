@@ -3,14 +3,7 @@
 import React from "react"
 import { Button, TextB, TextH } from "@/comps"
 import { motion } from "framer-motion"
-import {
-  ArrowLeft,
-  ChevronLeft,
-  MoreVertical,
-  SearchIcon,
-  SendIcon,
-  ShieldClose,
-} from "lucide-react"
+import { ChevronLeft, MoreVertical, SearchIcon, SendIcon } from "lucide-react"
 
 import { InputText } from "../_comps"
 import { IChatData } from "./chatData"
@@ -38,12 +31,12 @@ export default function ChatSection(props: {
             <img
               src={props.data.img}
               alt="P"
-              className="size-[40px] rounded-[20px]"
+              className="size-[40px] rounded-[5px]"
             />
           </div>
           <div>
             <TextH v="h5">{props.data.name}</TextH>
-            <TextB v="p5">{props.data.lastSeen}</TextB>
+            <TextB v="p5">{props.data.department}</TextB>
           </div>
         </div>
         <div className=" flex gap-x-3">
@@ -55,7 +48,11 @@ export default function ChatSection(props: {
         <div>Messages</div>
         <div className="absolute bottom-0 w-full">
           <div className="w-full flex items-center justify-center mb-4">
-            <InputText Icon={SendIcon} placeH={"Search for a friend"} />
+            <InputText
+              Icon={SendIcon}
+              placeH={"Search for a friend"}
+              className="w-[80%]"
+            />
           </div>
         </div>
       </div>

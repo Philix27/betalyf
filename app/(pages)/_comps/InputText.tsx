@@ -1,9 +1,19 @@
+import { cn } from "@/lib"
 import { LucideIcon } from "lucide-react"
 
-export function InputText(props: { Icon?: LucideIcon; placeH: string }) {
+export function InputText(props: {
+  Icon?: LucideIcon
+  placeH: string
+  className?: string
+}) {
   const { Icon } = props
   return (
-    <div className="bg-card  rounded-lg w-full flex items-center justify-center px-2">
+    <div
+      className={cn(
+        "bg-card  rounded-lg w-full flex items-center justify-center px-2",
+        props.className
+      )}
+    >
       <input
         className="py-2 px-2 bg-card text-card-foreground rounded-2xl w-full outline-none"
         type="text"
@@ -17,7 +27,7 @@ export function InputText(props: { Icon?: LucideIcon; placeH: string }) {
         justify-center bg-secondary
       `}
         >
-          <Icon size={14} />
+         {Icon &&  <Icon size={14} />}
         </div>
       )}
     </div>
