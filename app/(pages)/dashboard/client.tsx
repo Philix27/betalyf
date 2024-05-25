@@ -1,11 +1,14 @@
 import React from "react"
 import { TextB, TextH } from "@/comps"
+import { AppImg } from "@/lib"
 import { SearchIcon } from "lucide-react"
-import { serviceData } from "./service"
+
+import { BlueCard } from "./blueCard"
+import { dataQuickActions, serviceData } from "./service"
 
 export default function DashboardScreen() {
   return (
-    <div className="w-full flex flex-col items-center justify-center mt-4">
+    <div className="w-full flex flex-col items-center justify-center mt-4 mb-[80px]">
       <div className="w-full mb-4">
         <TextH v="h4" className={"text-card-foreground mb-2"}>
           Our services
@@ -31,22 +34,32 @@ export default function DashboardScreen() {
           })}
         </div>
       </div>
-      <div className="bg-primary w-full px-4 py-4 rounded-lg mb-4 h-[200px] mt-2 flex flex-col justify-between">
-        <div className="w-[70%]">
-          <TextH v="h3" className={"text-primary-foreground mb-2"}>
-            Find a doctor or
-          </TextH>
-          <TextH v="h3" className={"text-primary-foreground mb-2"}>
-            other health care workers
-          </TextH>
-        </div>
-        <div className="w-[80%] bg-card px-4 py-3 rounded-lg flex items-center">
-          <div className="mr-2">
-            <SearchIcon />
-          </div>
-          <TextB v="p4" className="card-foreground">
-            Search for a physician
-          </TextB>
+      <BlueCard />
+      <div className="w-full">
+        <TextH v="h4" className={"text-card-foreground mb-2"}>
+          Quick actions
+        </TextH>
+        <div
+          className={`
+        grid grid-cols-2 gap-x-4 gap-y-4 w-full
+      `}
+        >
+          {dataQuickActions.map((val, i) => (
+            <div
+              key={i}
+              className={
+                "w-full flex flex-col items-center"
+              }
+            >
+              <div className={`bg-card 
+              w-full flex flex-col 
+              items-center justify-center
+              rounded-2xl p-3 mb-2`}>
+                <img src={val.icon} className={"w-[100px] h-[100px]"} />
+              </div>
+              <TextB>{val.title}</TextB>
+            </div>
+          ))}
         </div>
       </div>
     </div>
