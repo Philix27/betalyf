@@ -1,4 +1,5 @@
 import { publicProcedure, router } from "@/server"
+import { $Enums } from "@prisma/client"
 import { z } from "zod"
 
 export const userRouter = router({
@@ -23,11 +24,14 @@ export const userRouter = router({
         allergies: z.string(),
         country: z.string().optional(),
         isMale: z.boolean(),
+        isClinician: z.boolean(),
+        department: z.nativeEnum($Enums.DEPARTMENT),
       })
     )
     .mutation(async ({ ctx, input }) => {
       return await ctx.prisma.user.create({
         data: {
+          isClinician: input.isClinician,
           email: input.email,
           lastname: input.lastName,
           wallet_address: input.walletAddress,

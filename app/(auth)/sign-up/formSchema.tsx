@@ -1,7 +1,7 @@
 import { z } from "zod"
 
 export type IBudgetCategories =
-  | "Home"
+  | "Doc"
   | "Work"
   | "Personal"
   | "Tech"
@@ -9,25 +9,21 @@ export type IBudgetCategories =
 
 export const formSchema = z.object({
   // To
-  name: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
-  }),
   email: z.string(),
   firstName: z.string(),
   lastName: z.string(),
   allergies: z.string(),
   department: z.string(),
-  age: z.number(),
+  age: z.string()
 })
 
 export const defaultValues: z.infer<typeof formSchema> = {
-  name: "",
   email: "",
   firstName: "",
   lastName: "",
   allergies: "",
   department: "",
-  age: 0,
+  age: "",
 }
 
 export type IFormSchema = z.infer<typeof formSchema>

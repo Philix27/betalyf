@@ -19,7 +19,7 @@ model User {
   isMale         Boolean
   age            Int
   wallet_address String        @unique
-  isClinician    String        @unique
+  isClinician    Boolean        @unique
   //Relationships
   department     DEPARTMENT?
   appointments   Appointment[]

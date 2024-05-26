@@ -2,36 +2,49 @@
 
 import React, { useState } from "react"
 import { useRouter } from "next/navigation"
-import { InputText } from "@/(pages)/_comps"
-import { AppInput, Button, Form, TextB, TextH } from "@/comps"
-import { cn } from "@/lib"
+import { AppInput, AppSelect, Button, Form, TextH } from "@/comps"
+import { cn, trpc } from "@/lib"
 import { zodResolver } from "@hookform/resolvers/zod"
+import { $Enums } from "@prisma/client"
 import { useForm } from "react-hook-form"
+import { toast } from "sonner"
 
-import {
-  IBudgetCategories,
-  IFormSchema,
-  defaultValues,
-  formSchema,
-} from "./formSchema"
+import { IFormSchema, defaultValues, formSchema } from "./formSchema"
 import styles from "./styles.module.css"
 
 export default function SignInPage() {
   const router = useRouter()
-  const [category, setCategory] = useState<IBudgetCategories>("Home")
+  const [category, setCategory] = useState<$Enums.DEPARTMENT>("DOCTOR")
+  const [IsMale, setIsMale] = useState<boolean>(true)
+  const [IsClinician, setIsClinician] = useState<boolean>(true)
   const form = useForm<IFormSchema>({
     resolver: zodResolver(formSchema),
     defaultValues: defaultValues,
   })
+  const t = trpc.user.registerUser.useMutation()
 
-  // 2. Define a submit handler.
-  function onSubmit(values: IFormSchema) {
+  async function onSubmit(values: IFormSchema) {
     // Todo
-    // Call trpc, add to db
-    // call smart contract and create
     console.log(values)
+    try {
+      await t.mutateAsync({
+        email: values.email,
+        firstName: values.firstName,
+        lastName: values.lastName,
+        allergies: values.allergies,
+        isMale: IsMale,
+        age: parseInt(values.age),
+        walletAddress: "",
+        isClinician: IsClinician,
+        department: category,
+      })
+
+      toast.success("Account created!")
+      router.push("/dashboard")
+    } catch (error) {
+      toast.error("Check your form and fill every")
+    }
   }
-  const handleSubmit = () => {}
 
   return (
     <div
@@ -51,15 +64,13 @@ export default function SignInPage() {
         p-2
       `}
       >
-        <TextH>Register with us ke</TextH>
-        <TextB v="p4">Have free access to over 100 physicians</TextB>
         <div
           className={`
-      flex flex-col gap-y-4 w-full
-        py-6 px-4 rounded-2xl border-primary 
-        border-[1px] bg-background
+      flex flex-col gap-y-4 w-full px-4 rounded-2xl border-primary 
+        border-[1px] bg-slate-300/85 py-2
       `}
         >
+          <TextH>Register with us</TextH>
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(onSubmit)}
@@ -67,69 +78,88 @@ export default function SignInPage() {
             w-full flex flex-col 
             items-center 
             justify-center 
-            my-8
+            my-4
         `}
             >
-              <div
-                className={
-                  "w-[90%] space-y-6 flex flex-col items-center md:w-[75%] "
-                }
-              >
+              <div className={"w-[95%] space-y-4 flex flex-col"}>
                 <AppInput
                   control={form.control}
                   name="firstName"
-                  label="Name of budget"
+                  label="First namet"
                 />
                 <AppInput
                   control={form.control}
                   name="lastName"
-                  label="Name of budget"
+                  label="Last name"
+                />
+                <AppInput control={form.control} name="email" label="Email" />
+                <AppInput
+                  control={form.control}
+                  name="age"
+                  label="Age"
+                  type="no"
                 />
                 <AppInput
                   control={form.control}
-                  name="email"
-                  label="Name of budget"
+                  name="allergies"
+                  label="Allergies"
                 />
 
-                <div className={"w-full"}>
-                  <label htmlFor="category">
-                    <TextB>Category</TextB>
-                  </label>
-                </div>
-                <select
-                  name="category"
-                  className={`
-                w-full bg-secondary border-primary outline-primary
-                p-2 my-2 border-2 rounded-md
-              `}
+                <AppSelect
+                  label={"Gender"}
                   onChange={(e) => {
-                    setCategory(e.target.value as IBudgetCategories)
+                    if (e.target.value == "MALE") {
+                      setIsMale(true)
+                    } else {
+                      setIsMale(false)
+                    }
                   }}
-                >
-                  <option value={"Home"}>Home</option>
-                  <option value={"Work"}>Work</option>
-                  <option value={"Personal"}>Personal</option>
-                  <option value={"Tech"}>Tech</option>
-                  <option value={"Spiritual"}>Spiritual</option>
-                </select>
-                <Button variant={"default"} type="submit">
+                  data={[
+                    { title: "Male", value: "MALE" },
+                    { title: "Female", value: "FEMALE" },
+                  ]}
+                />
+                <AppSelect
+                  label={"Are you a clinician?"}
+                  onChange={(e) => {
+                    if (e.target.value === "YES") {
+                      setIsClinician(true)
+                    } else {
+                      setIsClinician(false)
+                    }
+                  }}
+                  data={[
+                    { title: "No", value: "NO" },
+                    { title: "Yes", value: "YES" },
+                  ]}
+                />
+                {IsClinician && (
+                  <AppSelect
+                    label={"Department"}
+                    onChange={(e) => {
+                      setCategory(e.target.value as $Enums.DEPARTMENT)
+                    }}
+                    data={[
+                      { title: "Doctor", value: "DOCTOR" },
+                      { title: "Nurse", value: "NURSE" },
+                      { title: "Pharmacist", value: "PHARMACIST" },
+                      { title: "Therapist", value: "THERAPIST" },
+                      { title: "Dentist", value: "DENTIST" },
+                      { title: "Dentist", value: "PHYSIO" },
+                      { title: "Dentist", value: "PEADIATRICS" },
+                      { title: "Dentist", value: "EMERGENCY" },
+                    ]}
+                  />
+                )}
+                <Button variant={"default"} type="submit" className="mt-4">
                   Submit
                 </Button>
               </div>
             </form>
           </Form>
-
-          <InputText placeH={"First name"} />
-          <InputText placeH={"Last name"} />
-          <InputText placeH={"Email"} />
-          <InputText placeH={"Age"} />
-          <InputText placeH={"Allergies"} />
-          <InputText placeH={"Is Male"} />
-          <InputText placeH={"Country"} />
-          <InputText placeH={"Department"} />
-          <Button onClick={() => router.push("/dashboard")}> Register</Button>
         </div>
       </div>
     </div>
   )
 }
+

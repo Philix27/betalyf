@@ -29,7 +29,7 @@ export function AppInput<T extends FieldValues>(props: {
         control={props.control}
         name={props.name}
         render={({ field }) => (
-          <FormItem>
+          <FormItem className="flex flex-col items-start">
             {props.label && (
               <FormLabel>
                 <TextB v="p5">{props.label}</TextB>
