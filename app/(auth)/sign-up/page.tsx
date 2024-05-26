@@ -14,9 +14,9 @@ import styles from "./styles.module.css"
 
 export default function SignInPage() {
   const router = useRouter()
-  const [category, setCategory] = useState<$Enums.DEPARTMENT>("DOCTOR")
+  const [category, setCategory] = useState<$Enums.DEPARTMENT | undefined>()
   const [IsMale, setIsMale] = useState<boolean>(true)
-  const [IsClinician, setIsClinician] = useState<boolean>(true)
+  const [IsClinician, setIsClinician] = useState<boolean>(false)
   const form = useForm<IFormSchema>({
     resolver: zodResolver(formSchema),
     defaultValues: defaultValues,
@@ -24,8 +24,6 @@ export default function SignInPage() {
   const t = trpc.user.registerUser.useMutation()
 
   async function onSubmit(values: IFormSchema) {
-    // Todo
-    console.log(values)
     try {
       await t.mutateAsync({
         email: values.email,
@@ -126,6 +124,7 @@ export default function SignInPage() {
                       setIsClinician(true)
                     } else {
                       setIsClinician(false)
+                      setCategory(undefined)
                     }
                   }}
                   data={[
@@ -162,4 +161,3 @@ export default function SignInPage() {
     </div>
   )
 }
-

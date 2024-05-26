@@ -1,6 +1,10 @@
-import { publicProcedure, router } from "@/server"
-import { $Enums } from "@prisma/client"
-import { z } from "zod"
+import { publicProcedure, router } from "@/server";
+import { $Enums } from "@prisma/client";
+import { z } from "zod";
+
+
+
+
 
 export const userRouter = router({
   getUser: publicProcedure
@@ -25,7 +29,7 @@ export const userRouter = router({
         country: z.string().optional(),
         isMale: z.boolean(),
         isClinician: z.boolean(),
-        department: z.nativeEnum($Enums.DEPARTMENT),
+        department: z.nativeEnum($Enums.DEPARTMENT).optional(),
       })
     )
     .mutation(async ({ ctx, input }) => {
