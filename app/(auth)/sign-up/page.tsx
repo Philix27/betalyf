@@ -1,8 +1,8 @@
 "use client"
 
-import React, { useEffect, useState } from "react"
+import React from "react"
 import { TextB } from "@/comps"
-import { useMinipay, useSocialConnect } from "@/sc"
+import { useMinipay,  } from "@/sc"
 import { ConnectButton } from "@rainbow-me/rainbowkit"
 import { useAccount } from "wagmi"
 

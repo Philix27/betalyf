@@ -19,7 +19,7 @@ model User {
   isMale         Boolean
   age            Int
   wallet_address String        @unique
-  isClinician    Boolean        @unique
+  isClinician    Boolean       @unique
   //Relationships
   department     DEPARTMENT?
   appointments   Appointment[]
@@ -42,14 +42,15 @@ enum DEPARTMENT {
 
 model Appointment {
   // Personal info
-  status     APPOINTMENT_STATUS
-  title      String
-  user_id    String?
-  user       User?              @relation(fields: [user_id], references: [id])
+  status       APPOINTMENT_STATUS
+  title        String
+  clinician_id String?
+  user_id      String?
+  user         User?              @relation(fields: [user_id], references: [id])
   // essential
-  id         String             @id @default(uuid())
-  created_at DateTime?          @default(now())
-  updated_at DateTime?          @updatedAt
+  id           String             @id @default(uuid())
+  created_at   DateTime?          @default(now())
+  updated_at   DateTime?          @updatedAt
 }
 
 enum APPOINTMENT_STATUS {
