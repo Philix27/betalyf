@@ -10,6 +10,9 @@ import styles from "./styles.module.css"
 
 export default function SignInPage() {
   const router = useRouter()
+
+  const handleSubmit = () => {}
+
   return (
     <div
       className={cn(
@@ -20,12 +23,14 @@ export default function SignInPage() {
         styles.container
       )}
     >
-      <div className={`
+      <div
+        className={`
         w-[70%] flex flex-col gap-y-4 
         items-center justify-center 
         text-center rounded-2xl bg-background
         p-3
-      `}>
+      `}
+      >
         <TextH>Register with us</TextH>
         <TextB v="p4">Have free access to over 100 physicians</TextB>
         <div
@@ -36,6 +41,12 @@ export default function SignInPage() {
         >
           <InputText placeH={"First name"} />
           <InputText placeH={"Last name"} />
+          <InputText placeH={"Email"} />
+          <InputText placeH={"Age"} />
+          <InputText placeH={"Allergies"} />
+          <InputText placeH={"Is Male"} />
+          <InputText placeH={"Country"} />
+          <InputText placeH={"Department"} />
           <Button onClick={() => router.push("/dashboard")}> Register</Button>
         </div>
       </div>

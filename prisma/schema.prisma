@@ -19,25 +19,9 @@ model User {
   isMale         Boolean
   age            Int
   wallet_address String        @unique
+  isClinician    String        @unique
   //Relationships
-  appointments   Appointment[]
-  // essential
-  id             String        @id @default(uuid())
-  created_at     DateTime?     @default(now())
-  updated_at     DateTime?     @updatedAt
-}
-
-model Clinician {
-  // Personal info
-  department     DEPARTMENT
-  lastname       String
-  firstname      String
-  email          String        @unique
-  img            String?
-  country        String?
-  wallet_address String        @unique
-  isMale         Boolean
-  //Relationships
+  department     DEPARTMENT?
   appointments   Appointment[]
   // essential
   id             String        @id @default(uuid())
@@ -58,16 +42,14 @@ enum DEPARTMENT {
 
 model Appointment {
   // Personal info
-  status       APPOINTMENT_STATUS
-  title        String
-  user_id      String?
-  user         User?              @relation(fields: [user_id], references: [id])
-  clinician_id String?
-  clinician    Clinician?         @relation(fields: [clinician_id], references: [id])
+  status     APPOINTMENT_STATUS
+  title      String
+  user_id    String?
+  user       User?              @relation(fields: [user_id], references: [id])
   // essential
-  id           String             @id @default(uuid())
-  created_at   DateTime?          @default(now())
-  updated_at   DateTime?          @updatedAt
+  id         String             @id @default(uuid())
+  created_at DateTime?          @default(now())
+  updated_at DateTime?          @updatedAt
 }
 
 enum APPOINTMENT_STATUS {
