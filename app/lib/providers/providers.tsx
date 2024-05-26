@@ -1,31 +1,26 @@
-"use client"
+"use client";
 
-import React, {
-  Dispatch,
-  ReactNode,
-  SetStateAction,
-  createContext,
-  useState,
-} from "react"
-import {
-  RainbowKitProvider,
-  connectorsForWallets,
-  getDefaultConfig,
-} from "@rainbow-me/rainbowkit"
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
-import { ThemeProvider } from "next-themes"
-import { Toaster } from "sonner"
-import { arbitrum, base, celo, celoAlfajores, mainnet } from "wagmi/chains"
+import React, { Dispatch, ReactNode, SetStateAction, createContext, useState } from "react";
+import { RainbowKitProvider, connectorsForWallets, getDefaultConfig } from "@rainbow-me/rainbowkit";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ThemeProvider } from "next-themes";
+import { Toaster } from "sonner";
+import { arbitrum, base, celo, celoAlfajores, mainnet } from "wagmi/chains";
 
-import { TrpcProvider } from "./trpcProvider"
-import "@rainbow-me/rainbowkit/styles.css"
-import type { AppProps } from "next/app"
-import { injectedWallet } from "@rainbow-me/rainbowkit/wallets"
-import { SessionProvider } from "next-auth/react"
-import { WagmiProvider, createConfig, http } from "wagmi"
+
+
+import { TrpcProvider } from "./trpcProvider";
+import "@rainbow-me/rainbowkit/styles.css";
+import type { AppProps } from "next/app";
+import { injectedWallet } from "@rainbow-me/rainbowkit/wallets";
+import { SessionProvider } from "next-auth/react";
+import { WagmiProvider, createConfig, http } from "wagmi";
+
+
 
 // import Layout from "../comps/Layout"
-import "../styles/globals.css"
+import "../styles/globals.css";
+
 
 // const wagmiConfig = getDefaultConfig({
 //   appName: "Xpensa",
@@ -42,8 +37,13 @@ const rainbowConfig = getDefaultConfig({
   appName: "Peerie",
   projectId: projectId,
   // projectId: "a1ca0e06558ccfc78d859bff77e9d666",
-  chains: [mainnet],
+  chains: [celo, celoAlfajores],
   ssr: true, // If your dApp uses server side rendering (SSR)
+  transports: {
+    [celo.id]: http(),
+    [celoAlfajores.id]: http(),
+  },
+  connectors,
 })
 
 const connectors = connectorsForWallets(

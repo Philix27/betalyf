@@ -1,21 +1,19 @@
-"use client";
+"use client"
 
-import React, { useState } from "react";
-import { useRouter } from "next/navigation";
-import { AppInput, AppSelect, Button, Form, TextH } from "@/comps";
-import { cn, trpc } from "@/lib";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { $Enums } from "@prisma/client";
-import { useForm } from "react-hook-form";
-import { toast } from "sonner";
+import React, { useState } from "react"
+import { useRouter } from "next/navigation"
+import { AppInput, AppSelect, Button, Form, TextH } from "@/comps"
+import { cn, trpc } from "@/lib"
+import { SCUtils } from "@/sc"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { $Enums } from "@prisma/client"
+import { useForm } from "react-hook-form"
+import { toast } from "sonner"
 
+import { IFormSchema, defaultValues, formSchema } from "./formSchema"
+import styles from "./styles.module.css"
 
-
-import { IFormSchema, defaultValues, formSchema } from "./formSchema";
-import styles from "./styles.module.css";
-
-
-export default function SignUpForm() {
+export default function SignUpForm(props: { walletAddress: `0x${string}` }) {
   const router = useRouter()
   const [category, setCategory] = useState<$Enums.DEPARTMENT | undefined>()
   const [IsMale, setIsMale] = useState<boolean>(true)
@@ -41,6 +39,8 @@ export default function SignUpForm() {
       })
 
       toast.success("Account created!")
+
+      const ss = await SCUtils.lookupAddress(values.email, props.walletAddress)
       router.push("/dashboard")
     } catch (error) {
       toast.error("Check your form and fill every")

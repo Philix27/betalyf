@@ -27,7 +27,10 @@ export class SCUtils {
    * @param identifier The identifier to look up the address for.
    * @returns The first account in the response, or undefined if there is none.
    */
-  static async lookupAddress(identifier: string, walletClient: any) {
+  static async lookupAddress(
+    identifier: string,
+    walletClient: any
+  ): Promise<boolean> {
     if (walletClient) {
       let response: Response = await fetch(
         `/api/socialconnect/lookup?${new URLSearchParams({
@@ -41,9 +44,11 @@ export class SCUtils {
 
       let lookupResponse: LookupResponse = await response.json()
       if (lookupResponse.accounts.length > 0) {
-        return lookupResponse.accounts[0]
+        return !!lookupResponse.accounts[0]
       }
+      return false
     }
+    return false
   }
 
   /**
