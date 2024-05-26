@@ -43,7 +43,6 @@ const rainbowConfig = getDefaultConfig({
     [celo.id]: http(),
     [celoAlfajores.id]: http(),
   },
-  connectors,
 })
 
 const connectors = connectorsForWallets(

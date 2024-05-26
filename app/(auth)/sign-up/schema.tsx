@@ -1,12 +1,5 @@
 import { z } from "zod"
 
-export type IBudgetCategories =
-  | "Doc"
-  | "Work"
-  | "Personal"
-  | "Tech"
-  | "Spiritual"
-
 export const formSchema = z.object({
   // To
   email: z.string(),
@@ -14,7 +7,7 @@ export const formSchema = z.object({
   lastName: z.string(),
   allergies: z.string(),
   department: z.string(),
-  age: z.string()
+  age: z.string(),
 })
 
 export const defaultValues: z.infer<typeof formSchema> = {

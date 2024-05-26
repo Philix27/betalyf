@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useEffect, useState } from "react"
+import { TextB } from "@/comps"
 import { useMinipay, useSocialConnect } from "@/sc"
 import { ConnectButton } from "@rainbow-me/rainbowkit"
 import { useAccount } from "wagmi"
@@ -13,8 +14,11 @@ export default function SignUpPage() {
   const { isConnected, walletAddress } = useMinipay()
   if (!isConnected || !walletAddress) {
     return (
-      <div>
-        <ConnectButton />
+      <div className={"flex flex-col items-center justify-start w-full"}>
+        <div className="mt-[20vh] bg-secondary rounded-2xl p-4">
+          <TextB v="p3" className="mb-4 text-secondary-foreground">Connect your wallet</TextB>
+          <ConnectButton />
+        </div>
       </div>
     )
   } else {

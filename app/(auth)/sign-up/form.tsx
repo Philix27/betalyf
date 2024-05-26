@@ -10,7 +10,7 @@ import { $Enums } from "@prisma/client"
 import { useForm } from "react-hook-form"
 import { toast } from "sonner"
 
-import { IFormSchema, defaultValues, formSchema } from "./formSchema"
+import { IFormSchema, defaultValues, formSchema } from "./schema"
 import styles from "./styles.module.css"
 
 export default function SignUpForm(props: { walletAddress: `0x${string}` }) {
