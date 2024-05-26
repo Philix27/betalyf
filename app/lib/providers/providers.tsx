@@ -1,26 +1,31 @@
-"use client";
+"use client"
 
-import React, { Dispatch, ReactNode, SetStateAction, createContext, useState } from "react";
-import { RainbowKitProvider, connectorsForWallets, getDefaultConfig } from "@rainbow-me/rainbowkit";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ThemeProvider } from "next-themes";
-import { Toaster } from "sonner";
-import { arbitrum, base, celo, celoAlfajores, mainnet } from "wagmi/chains";
+import React, {
+  Dispatch,
+  ReactNode,
+  SetStateAction,
+  createContext,
+  useState,
+} from "react"
+import {
+  RainbowKitProvider,
+  connectorsForWallets,
+  getDefaultConfig,
+} from "@rainbow-me/rainbowkit"
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
+import { ThemeProvider } from "next-themes"
+import { Toaster } from "sonner"
+import { arbitrum, base, celo, celoAlfajores, mainnet } from "wagmi/chains"
 
-
-
-import { TrpcProvider } from "./trpcProvider";
-import "@rainbow-me/rainbowkit/styles.css";
-import type { AppProps } from "next/app";
-import { injectedWallet } from "@rainbow-me/rainbowkit/wallets";
-import { SessionProvider } from "next-auth/react";
-import { WagmiProvider, createConfig, http } from "wagmi";
-
-
+import { TrpcProvider } from "./trpcProvider"
+import "@rainbow-me/rainbowkit/styles.css"
+import type { AppProps } from "next/app"
+import { injectedWallet } from "@rainbow-me/rainbowkit/wallets"
+import { SessionProvider } from "next-auth/react"
+import { WagmiProvider, createConfig, http } from "wagmi"
 
 // import Layout from "../comps/Layout"
-import "../styles/globals.css";
-
+import "../styles/globals.css"
 
 // const wagmiConfig = getDefaultConfig({
 //   appName: "Xpensa",
@@ -84,14 +89,14 @@ export function AppProviders(props: { children: ReactNode }) {
       <WagmiProvider config={rainbowConfig}>
         <QueryClientProvider client={queryClient}>
           <RainbowKitProvider>
-            {/* <SessionProvider> */}
-            <TrpcProvider>
-              <SettingsContext.Provider value={{ isOpen, setOpen }}>
-                {props.children}
-                <Toaster className={"bg-primary"} />
-              </SettingsContext.Provider>
-            </TrpcProvider>
-            {/* </SessionProvider> */}
+            <SessionProvider>
+              <TrpcProvider>
+                <SettingsContext.Provider value={{ isOpen, setOpen }}>
+                  {props.children}
+                  <Toaster className={"bg-primary"} />
+                </SettingsContext.Provider>
+              </TrpcProvider>
+            </SessionProvider>
           </RainbowKitProvider>
         </QueryClientProvider>
       </WagmiProvider>

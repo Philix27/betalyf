@@ -26,24 +26,36 @@ export default function SignUpForm(props: { walletAddress: `0x${string}` }) {
 
   async function onSubmit(values: IFormSchema) {
     try {
-      await t.mutateAsync({
-        email: values.email,
-        firstName: values.firstName,
-        lastName: values.lastName,
-        allergies: values.allergies,
-        isMale: IsMale,
-        age: parseInt(values.age),
-        walletAddress: "",
-        isClinician: IsClinician,
-        department: category,
-      })
+      const addressExist = await SCUtils.lookupAddress(
+        "2348108850572",
+        // values.email,
+        props.walletAddress
+      )
+      if (!addressExist) {
+        const successfulReg = SCUtils.register(
+          values.email,
+          props.walletAddress
+        )
+        toast.success("Registered on social connect!")
+      }
+      // await t.mutateAsync({
+      //   email: values.email,
+      //   firstName: values.firstName,
+      //   lastName: values.lastName,
+      //   allergies: values.allergies,
+      //   isMale: IsMale,
+      //   age: parseInt(values.age),
+      //   walletAddress: "",
+      //   isClinician: IsClinician,
+      //   department: category,
+      // })
 
       toast.success("Account created!")
 
-      const ss = await SCUtils.lookupAddress(values.email, props.walletAddress)
       router.push("/dashboard")
     } catch (error) {
-      toast.error("Check your form and fill every")
+      toast.error("oops an error occured")
+      console.log("SignUp Error", error)
     }
   }
 
