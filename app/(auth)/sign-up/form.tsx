@@ -38,17 +38,17 @@ export default function SignUpForm(props: { walletAddress: `0x${string}` }) {
         )
         toast.success("Registered on social connect!")
       }
-      // await t.mutateAsync({
-      //   email: values.email,
-      //   firstName: values.firstName,
-      //   lastName: values.lastName,
-      //   allergies: values.allergies,
-      //   isMale: IsMale,
-      //   age: parseInt(values.age),
-      //   walletAddress: "",
-      //   isClinician: IsClinician,
-      //   department: category,
-      // })
+      await t.mutateAsync({
+        email: values.email,
+        firstName: values.firstName,
+        lastName: values.lastName,
+        allergies: values.allergies,
+        isMale: IsMale,
+        age: parseInt(values.age),
+        walletAddress: "",
+        isClinician: IsClinician,
+        department: category,
+      })
 
       toast.success("Account created!")
 
