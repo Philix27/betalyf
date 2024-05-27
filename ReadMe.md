@@ -1,21 +1,15 @@
-# Peerie
+# BetaLyf
 
 ### Problem
 
-In today's rapidly evolving financial landscape, there's a growing awareness of the critical importance of managing personal finances. This awareness stems from various factors such as economic uncertainties, shifting job markets, and an emphasis on financial literacy. As individuals navigate these complexities, they understand the significance of saving and investing their funds wisely.
+Accessibility to healthcare has never been easier than it is today, yet we still find it difficult and challenging to find out time to visit our doctors or clinic for periodic checkup. What if there is a way to schedule a meeting with a doctor at any hour of your choice?
 
-Moreover, the rise of freelance work, entrepreneurship, and the gig economy has made it imperative for individuals to have a robust system in place for managing their income and expenses. This includes not only budgeting and saving but also effectively creating and managing invoices for different purposes such as freelance projects, small business ventures, or even personal services rendered.
-
-Efficiently managing invoices is essential for several reasons. It ensures timely payments, helps track income streams, and provides clarity on financial transactions. Whether it's issuing invoices to clients, tracking payments received, or reconciling accounts, having a streamlined invoicing process is indispensable for maintaining financial stability and growth.
-
-Furthermore, blockchain technology such as Minipay can played a pivotal role in revolutionizing how individuals manage their finances and invoices. With the advent of online banking, mobile payment apps such as Xpensa, people now have access to powerful tools that simplify financial tasks and empower them to take control of their financial lives.
-
-In summary, the increasing awareness of personal finance management underscores the need for individuals to not only save their funds seamlessly but also to leverage efficient invoicing practices. By doing so, they can navigate the complexities of today's financial landscape with confidence and achieve their long-term financial goals.
 
 ## Solution
 
-Xpensa is an all in one package that enables users to create and manage budgets for different purposes. This also helps them in 
-tracking their day to day expenses. In addition to this Xpensa helps users to create invoices which can be shared in the form of a payment link which the client the invoice was intended for can easily use to make payments.
+- Making accessibility to healthcare even easier. One can book a physician for any time of the day.
+- Access to uncommon drugs which can be ordered and shipped to users from any part of the world
+- 
 
 ## Methodology
 
@@ -25,10 +19,9 @@ A Trpc server with prisma orm and a postgres database is used to store more info
 
 ## Challenges faced
 
-The project started with a Next.js and a golang (fiber) backend server but due to time constraint the backend server was dropped for 
-an easier to setup trpc server with prisma orm and a postgres database.
-## Description
+Trying to breakdown the project into smaller and digestible chunks which made it easier for me to be able to work
 
+## Description
 
 Introducing Xpensa, your ultimate financial companion! Say goodbye to budgeting woes and hello to effortless money management. With Xpensa, you can create customized budgets tailored to your specific needs, whether it's for groceries, travel, or savings goals. Keep a close eye on your spending with intuitive tools that track your daily expenses, helping you stay on track and in control.
 
@@ -72,10 +65,3 @@ This project was made using Next.js for the frontend and Trpc + Prisma + Postgre
 - Video link
 
 
-### Problem
-
-Buying of digital goods has always been a challenge especially for third world countries where
-there is inadequate access to technology required to make purchase seamless.
-
-But with the aid of Bookton on minipay users can easily buy pdfs and other digital products easily with 
-crypto wallets built into the browser.
