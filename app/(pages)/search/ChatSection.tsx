@@ -1,17 +1,24 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
 import { Button, TextB, TextH } from "@/comps"
+import { cn } from "@/lib"
 import { motion } from "framer-motion"
-import { ChevronLeft, MoreVertical, SearchIcon, SendIcon } from "lucide-react"
 
-import { InputText } from "../_comps"
+import { HeaderRow } from "./Headrow"
 import { IChatData } from "./chatData"
 
 export default function ChatSection(props: {
   setShowActiveChat: React.Dispatch<React.SetStateAction<boolean>>
   data: IChatData
 }) {
+  const [selectTime, setSelectTime] = useState("2 - 4am")
+
+
+  
+  const onSubmit = () => {
+
+  }
   return (
     <motion.div
       initial={{ x: 200, opacity: 0.9 }}
@@ -21,41 +28,57 @@ export default function ChatSection(props: {
         fixed top-0 bottom-0 left-0 h-[100vh] bg-background w-full mt-[60px] z-10
     `}
     >
-      <div className="h-[50px] border-b border-accent flex items-center justify-between px-3">
-        <div className="flex items-center justify-center">
-          <div className="mr-[20px] flex items-center justify-center gap-x-2">
-            <ChevronLeft
-              size={25}
-              onClick={() => props.setShowActiveChat(false)}
-            />
-            <img
-              src={props.data.img}
-              alt="P"
-              className="size-[40px] rounded-[5px]"
-            />
-          </div>
-          <div>
-            <TextH v="h5">{props.data.name}</TextH>
-            <TextB v="p5">{props.data.department}</TextB>
-          </div>
+      <HeaderRow
+        data={props.data}
+        setShowActiveChat={props.setShowActiveChat}
+      />
+
+      <div className="w-full">
+        <div className="flex flex-col items-center justify-center mt-[50px] mb-[50px]">
+          <img
+            src={props.data.img}
+            className="h-[30vh] w-[30vh] rounded-[15vh]"
+          />
         </div>
-        <div className=" flex gap-x-3">
-          <SearchIcon size={15} />
-          <MoreVertical size={15} />
+        <div className="flex flex-col items-center justify-center space-y-4">
+          <TextH>{props.data.name}</TextH>
+          <TextB>DEPARTMENT: {props.data.department}</TextB>
+          <TextB className="">
+            Pick a time that would be convenient for you
+          </TextB>
         </div>
       </div>
-      <div className="p-2 flex flex-col justify-between relative h-[calc(100vh-110px)]">
-        <div>Messages</div>
-        <div className="absolute bottom-0 w-full">
-          <div className="w-full flex items-center justify-center mb-4">
-            <InputText
-              Icon={SendIcon}
-              placeH={"Search for a friend"}
-              className="w-[80%]"
-            />
+
+      <div className="flex flex-wrap items-center justify-center space-x-2 mt-4 gap-3 w-full">
+        {time.map((val, index) => (
+          <div
+            key={index}
+            className={cn(
+              "px-6 py-2 mx-2 rounded-[5px] ",
+              val === selectTime ? "bg-primary" : "outline outline-primary"
+            )}
+            onClick={() => {
+              setSelectTime(val)
+            }}
+          >
+            <TextB
+              v="p5"
+              className={cn(
+                val === selectTime
+                  ? "text-primary-foreground"
+                  : "text-card-foreground"
+              )}
+            >
+              {val}
+            </TextB>
           </div>
-        </div>
+        ))}
+      </div>
+      <div className="w-full my-4 flex items-center justify-center">
+        <Button onClick={onSubmit}>Book for $5</Button>
       </div>
     </motion.div>
   )
 }
+
+const time = ["2 - 4am", "4 - 6am", "6 - 8am", "8 - 10am"]
