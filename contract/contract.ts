@@ -11,32 +11,40 @@ export const AppContract = {
 }
 
 export const testCall = async (props: {
-  _signerAddress: `0x${string}` | undefined
+  // _signerAddress: `0x${string}` | undefined
   _seller: `0x${string}` | undefined
 }) => {
   if (window.ethereum) {
+    let accounts = await window.ethereum.request({
+      method: "eth_requestAccounts",
+    })
+
+    let userAddress = accounts[0]
+
     const provider = new BrowserProvider(window.ethereum)
 
-    const signer = await provider.getSigner(props._signerAddress)
+    const signer = await provider.getSigner(userAddress)
 
     console.log("Reached testCall", "props:", props)
 
     //   Txn
-    const tx = {
-      to: props._seller,
-      value: parseEther("1.0"),
-    }
+    // const tx = {
+    //   to: props._seller,
+    //   value: parseEther("1.0"),
+    // }
 
-    signer.sendTransaction(tx)
+    // signer.sendTransaction(tx)
     //   Contract call
     const contract = new Contract(AppContract.address, AppContract.abi, signer)
 
-    // try {
-    //   const txn = await contract.createPayment(props._seller)
+    try {
+      const txn = await contract.createPayment(props._seller, {
+        gasLimit: 500000,
+      })
 
-    //   await txn.wait()
-    // } catch (error) {
-    //   console.log("An error occurred", error)
-    // }
+      await txn.wait()
+    } catch (error) {
+      console.log("An error occurred", error)
+    }
   }
 }
