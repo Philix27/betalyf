@@ -2,8 +2,12 @@
 
 import React, { useState } from "react"
 import { Button, TextB, TextH } from "@/comps"
+import { testCall } from "@/contract"
 import { cn } from "@/lib"
+import { useMinipay } from "@/sc"
+// import { parseEther } from "ethers"
 import { motion } from "framer-motion"
+import { useSendTransaction } from "wagmi"
 
 import { HeaderRow } from "./Headrow"
 import { IChatData } from "./chatData"
@@ -13,11 +17,19 @@ export default function ChatSection(props: {
   data: IChatData
 }) {
   const [selectTime, setSelectTime] = useState("2 - 4am")
+  const { sendTransaction } = useSendTransaction()
 
+  const { walletAddress } = useMinipay()
 
-  
   const onSubmit = () => {
-
+    // sendTransaction({
+    //   to: "0x462E5F272B8431562811126779da6EcaE51A5B40",
+    //   value: parseEther("1.0"),
+    // })
+    testCall({
+      _signerAddress: walletAddress,
+      _seller: "0x462E5F272B8431562811126779da6EcaE51A5B40",
+    })
   }
   return (
     <motion.div
@@ -34,10 +46,10 @@ export default function ChatSection(props: {
       />
 
       <div className="w-full">
-        <div className="flex flex-col items-center justify-center mt-[50px] mb-[50px]">
+        <div className="flex flex-col items-center justify-center mt-[30px] mb-[20px]">
           <img
             src={props.data.img}
-            className="h-[30vh] w-[30vh] rounded-[15vh]"
+            className="h-[200px] w-[200px] rounded-[100px]"
           />
         </div>
         <div className="flex flex-col items-center justify-center space-y-4">
