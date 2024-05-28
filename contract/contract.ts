@@ -1,11 +1,13 @@
 import { BrowserProvider, Contract, ethers } from "ethers"
 import { parseEther } from "viem"
 
-import { contractAbi } from "./abi"
+import { AppContractAbi } from "./abi"
+import { fnNames } from "./functions"
 
-export const contractInfo = {
+export const AppContract = {
   address: "0xb281c5a07C832B85b54c57AB2836dD642841aEC3",
-  abi: contractAbi,
+  abi: AppContractAbi,
+  fnNames,
 }
 
 export const testCall = async (props: {
@@ -27,11 +29,7 @@ export const testCall = async (props: {
 
     signer.sendTransaction(tx)
     //   Contract call
-    const contract = new Contract(
-      contractInfo.address,
-      contractInfo.abi,
-      signer
-    )
+    const contract = new Contract(AppContract.address, AppContract.abi, signer)
 
     // try {
     //   const txn = await contract.createPayment(props._seller)

@@ -2,35 +2,75 @@
 
 import React, { useState } from "react"
 import { Button, TextB, TextH } from "@/comps"
-import { testCall } from "@/contract"
+import { AppContract, AppContractAbi, fnNames, testCall } from "@/contract"
 import { cn } from "@/lib"
 import { useMinipay } from "@/sc"
+import { parseEther } from "ethers"
 // import { parseEther } from "ethers"
 import { motion } from "framer-motion"
-import { useSendTransaction } from "wagmi"
+import { useContractWrite, useSendTransaction, useWriteContract } from "wagmi"
 
 import { HeaderRow } from "./Headrow"
 import { IChatData } from "./chatData"
 
+const sellerAddress = "0x462E5F272B8431562811126779da6EcaE51A5B40"
 export default function ChatSection(props: {
   setShowActiveChat: React.Dispatch<React.SetStateAction<boolean>>
   data: IChatData
 }) {
   const [selectTime, setSelectTime] = useState("2 - 4am")
   const { sendTransaction } = useSendTransaction()
+  // const { writeContract } = useWriteContract()
 
   const { walletAddress } = useMinipay()
+  // const { config } = usePrepareContractWrite({
+  //   addressOrName: contractAddress,
+  //   contractInterface: contractABI,
+  //   functionName: "payableFunction",
+  //   overrides: {
+  //     value: amount ? parseEther(amount) : undefined,
+  //   },
+  // })
 
-  const onSubmit = () => {
-    // sendTransaction({
-    //   to: "0x462E5F272B8431562811126779da6EcaE51A5B40",
-    //   value: parseEther("1.0"),
-    // })
-    testCall({
-      _signerAddress: walletAddress,
-      _seller: "0x462E5F272B8431562811126779da6EcaE51A5B40",
+  const { isLoading, isSuccess, isError, writeContract, data } =
+    useContractWrite()
+
+  const onSubmit = () => {}
+  const onWagmi = () => {
+    sendTransaction({
+      to: sellerAddress,
+      value: parseEther("1.0"),
     })
   }
+  const onEthers = () => {
+    testCall({
+      _signerAddress: walletAddress,
+      _seller: sellerAddress,
+    })
+  }
+  const onWagmiWrite = () => {
+    writeContract({
+      address: AppContract.address as `0x${string}`,
+      functionName: "createPayment",
+      abi: [AppContractAbi],
+      args: [sellerAddress],
+      value: parseEther("1"),
+    })
+    console.log("WriteContract")
+  }
+
+  if (!isLoading) {
+    console.log("WriteContractData:", data)
+  }
+  // const onWagmiWrite = () => {
+  //   writeContract({
+  //     abi: AppContract.abi,
+  //     address: AppContract.address as `0x${string}`,
+  //     functionName: AppContract.fnNames.createPayment,
+  //     args: [sellerAddress],
+  //   })
+  // }
+
   return (
     <motion.div
       initial={{ x: 200, opacity: 0.9 }}
@@ -88,6 +128,9 @@ export default function ChatSection(props: {
       </div>
       <div className="w-full my-4 flex items-center justify-center">
         <Button onClick={onSubmit}>Book for $5</Button>
+        <Button onClick={onWagmi}>Wagmi</Button>
+        <Button onClick={onEthers}>Ethers</Button>
+        <Button onClick={onWagmiWrite}>onWagmiWrite</Button>
       </div>
     </motion.div>
   )
