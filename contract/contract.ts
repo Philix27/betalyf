@@ -28,10 +28,10 @@ export const testCall = async (props: {
     console.log("Reached testCall", "props:", props)
 
     //   Txn
-    // const tx = {
-    //   to: props._seller,
-    //   value: parseEther("1.0"),
-    // }
+    const tx = {
+      to: props._seller,
+      value: parseEther("1.0"),
+    }
 
     // signer.sendTransaction(tx)
     //   Contract call
@@ -39,7 +39,8 @@ export const testCall = async (props: {
 
     try {
       const txn = await contract.createPayment(props._seller, {
-        gasLimit: 500000,
+        // gasLimit: 500000,
+        value: parseEther("1.0"),
       })
 
       await txn.wait()

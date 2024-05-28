@@ -36,28 +36,28 @@ export default function ChatSection(props: {
     useContractWrite()
 
   const onSubmit = () => {}
-  const onWagmi = () => {
-    sendTransaction({
-      to: sellerAddress,
-      value: parseEther("1.0"),
-    })
-  }
+  // const onWagmi = () => {
+  //   sendTransaction({
+  //     to: sellerAddress,
+  //     value: parseEther("1.0"),
+  //   })
+  // }
   const onEthers = () => {
     testCall({
-      _signerAddress: walletAddress,
+      // _signerAddress: walletAddress,
       _seller: sellerAddress,
     })
   }
-  const onWagmiWrite = () => {
-    writeContract({
-      address: AppContract.address as `0x${string}`,
-      functionName: "createPayment",
-      abi: [AppContractAbi],
-      args: [sellerAddress],
-      value: parseEther("1"),
-    })
-    console.log("WriteContract")
-  }
+  // const onWagmiWrite = () => {
+  //   writeContract({
+  //     address: AppContract.address as `0x${string}`,
+  //     functionName: "createPayment",
+  //     abi: [AppContractAbi],
+  //     args: [sellerAddress],
+  //     value: parseEther("1"),
+  //   })
+  //   console.log("WriteContract")
+  // }
 
   if (!isLoading) {
     console.log("WriteContractData:", data)
@@ -128,9 +128,9 @@ export default function ChatSection(props: {
       </div>
       <div className="w-full my-4 flex items-center justify-center">
         <Button onClick={onSubmit}>Book for $5</Button>
-        <Button onClick={onWagmi}>Wagmi</Button>
+        {/* <Button onClick={onWagmi}>Wagmi</Button> */}
         <Button onClick={onEthers}>Ethers</Button>
-        <Button onClick={onWagmiWrite}>onWagmiWrite</Button>
+        {/* <Button onClick={onWagmiWrite}>onWagmiWrite</Button> */}
       </div>
     </motion.div>
   )
