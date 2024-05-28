@@ -1,4 +1,5 @@
-import { BrowserProvider, Contract, parseEther } from "ethers"
+import { BrowserProvider, Contract } from "ethers"
+import { parseEther } from "viem"
 
 import { contractAbi, contractAddress } from "./abi"
 

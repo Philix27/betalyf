@@ -1,4 +1,4 @@
-import { BigNumber, Contract, ethers, providers } from "ethers"
+import { BrowserProvider, Contract, ethers } from "ethers"
 import { parseEther } from "viem"
 
 import { contractAbi } from "./abi"
@@ -13,9 +13,9 @@ export const testCall = async (props: {
   _seller: `0x${string}` | undefined
 }) => {
   if (window.ethereum) {
-    const provider = new providers.Web3Provider(window.ethereum)
+    const provider = new BrowserProvider(window.ethereum)
 
-    const signer = provider.getSigner(props._signerAddress)
+    const signer = await provider.getSigner(props._signerAddress)
 
     console.log("Reached testCall", "props:", props)
 
@@ -33,12 +33,12 @@ export const testCall = async (props: {
       signer
     )
 
-    try {
-      const txn = await contract.createPayment(props._seller)
+    // try {
+    //   const txn = await contract.createPayment(props._seller)
 
-      await txn.wait()
-    } catch (error) {
-      console.log("An error occurred", error)
-    }
+    //   await txn.wait()
+    // } catch (error) {
+    //   console.log("An error occurred", error)
+    // }
   }
 }

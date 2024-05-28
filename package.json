@@ -41,7 +41,7 @@
     "@web3modal/wagmi": "^4.1.10",
     "class-variance-authority": "^0.4.0",
     "clsx": "^1.2.1",
-     "ethers": "^5.7.2",
+    "ethers": "^6.12.1",
     "framer-motion": "^10.17.9",
     "lucide-react": "0.105.0-alpha.4",
     "net": "^1.0.2",
