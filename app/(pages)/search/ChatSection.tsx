@@ -2,7 +2,13 @@
 
 import React, { useState } from "react"
 import { Button, TextB, TextH } from "@/comps"
-import { AppContract, AppContractAbi, fnNames, testCall } from "@/contract"
+import {
+  AppContract,
+  AppContractAbi,
+  externalCall,
+  fnNames,
+  testCall,
+} from "@/contract"
 import { cn } from "@/lib"
 import { useMinipay } from "@/sc"
 import { parseEther } from "ethers"
@@ -43,11 +49,11 @@ export default function ChatSection(props: {
   //   })
   // }
   const onEthers = () => {
-    testCall({
-      // _signerAddress: walletAddress,
+    externalCall({
       _seller: sellerAddress,
     })
   }
+
   // const onWagmiWrite = () => {
   //   writeContract({
   //     address: AppContract.address as `0x${string}`,
