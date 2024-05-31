@@ -12,6 +12,7 @@ import {
   LucideIcon,
   MessageCircle,
   SearchIcon,
+  Tablet,
   UserCog,
 } from "lucide-react"
 
@@ -77,8 +78,13 @@ const navItems: { title: string; Icon: LucideIcon; link: string }[] = [
     Icon: BookIcon,
   },
   {
-    title: "Profile",
-    link: "/profile",
-    Icon: Cog,
+    title: "Drugs",
+    link: "/pharmacy",
+    Icon: Tablet,
   },
+  // {
+  //   title: "Profile",
+  //   link: "/profile",
+  //   Icon: Cog,
+  // },
 ]

@@ -29,20 +29,24 @@ export default function HomeClient() {
         p-4 flex flex-col bg-card
         w-[80%] 
         text-center rounded-2xl gap-y-3
-        mb-8
+        mb-12
       `}
       >
         <TextH v="h1" className={"text-[24px] md:text-[50px]"}>
-          Book a call with your favorite Doctor
+          Healthcare at your doorstep
         </TextH>
         <div className="">
-          <TextB v={"p4"}>Cannot access your doctor? Worry no more!</TextB>
+          <TextB v={"p5"}>
+            Easy accessibility to
+            healthcare professionals. Buy drugs, multivitamins and other 
+            medical utilities at an affordable rate.
+          </TextB>
         </div>
 
         <div className={"flex items-center justify-center"}>
           <Button
             onClick={() => {
-              router.push("/sign-in")
+              router.push("/sign-up")
             }}
           >
             <Stethoscope size={17} className="mr-2" /> Get started

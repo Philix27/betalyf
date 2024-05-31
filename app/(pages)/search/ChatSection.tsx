@@ -95,7 +95,7 @@ export default function ChatSection(props: {
         <div className="flex flex-col items-center justify-center mt-[30px] mb-[20px]">
           <img
             src={props.data.img}
-            className="h-[200px] w-[200px] rounded-[100px]"
+            className="h-[100px] w-[100px] rounded-[50px]"
           />
         </div>
         <div className="flex flex-col items-center justify-center space-y-4">
@@ -134,9 +134,6 @@ export default function ChatSection(props: {
       </div>
       <div className="w-full my-4 flex items-center justify-center">
         <Button onClick={onSubmit}>Book for $5</Button>
-        {/* <Button onClick={onWagmi}>Wagmi</Button> */}
-        <Button onClick={onEthers}>Ethers</Button>
-        {/* <Button onClick={onWagmiWrite}>onWagmiWrite</Button> */}
       </div>
     </motion.div>
   )

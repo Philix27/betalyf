@@ -26,7 +26,7 @@ export function HeaderRow(props: {
         </div>
       </div>
       <div className=" flex gap-x-3">
-        <SearchIcon size={15} />
+        {/* <SearchIcon size={15} /> */}
         <MoreVertical size={15} />
       </div>
     </div>
