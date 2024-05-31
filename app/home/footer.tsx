@@ -9,7 +9,7 @@ export default function FooterSection() {
   return (
     <div
       className={`
-      w-full  py-4`}
+      w-full  py-4 bg-white/45`}
     >
       <div className="flex items-center justify-around w-full">
         <div className={"flex gap-x-4"}>

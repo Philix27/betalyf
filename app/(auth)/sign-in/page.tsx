@@ -17,7 +17,7 @@ export default function SignInPage() {
     <div
       className={cn(
         `
-    w-full h-[calc(100vh-60px)] 
+    w-full h-[calc(100vh-50px)] 
       flex flex-col items-center justify-center
     `,
         styles.container

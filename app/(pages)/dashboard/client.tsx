@@ -22,7 +22,7 @@ export default function DashboardScreen() {
                 className={"w-full text-center flex flex-col items-center"}
               >
                 <div
-                  className={`w-full h-[60px] bg-card 
+                  className={`w-full h-[50px] bg-card 
                     rounded-xl flex
                     items-center justify-center mb-2`}
                 >

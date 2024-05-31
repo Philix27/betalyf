@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react"
 import Link from "next/link"
 import { Button, Icons } from "@/comps"
-import { AppStores, NavItem, SettingsContext, cn } from "@/lib"
+import { AppStores, NavItem, cn } from "@/lib"
 import { MenuIcon, SidebarClose } from "lucide-react"
 
 import { ThemeToggle } from "@/app/comps"
@@ -29,17 +29,17 @@ export function NavbarHeader({ items }: MainNavProps) {
 
   return (
     <header className="bg-primary sticky top-0 z-20 w-full border-b">
-      <div className="container flex h-[60px] items-center justify-between">
+      <div className="container flex h-[50px] items-center justify-between">
         <div className="flex gap-6 md:gap-10 ">
           <Link href="/" className="flex items-center space-x-2">
-            <span className="inline-block font-bold text-primary-foreground">{siteConfig.name}</span>
+            <span className="inline-block text-primary-foreground font-extrabold">{siteConfig.name}</span>
           </Link>
         </div>
 
         <div className="flex items-center justify-center">
-          <div className="">
+          {/* <div className="">
             <ThemeToggle />
-          </div>
+          </div> */}
         </div>
       </div>
     </header>

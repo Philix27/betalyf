@@ -83,7 +83,7 @@ export default function ChatSection(props: {
       animate={{ x: 0, opacity: 1 }}
       transition={{ ease: "easeInOut", duration: 0.5 }}
       className={`
-        fixed top-0 bottom-0 left-0 h-[100vh] bg-background w-full mt-[60px] z-10
+        fixed top-0 bottom-0 left-0 h-[100vh] bg-background w-full mt-[50px] z-10
     `}
     >
       <HeaderRow

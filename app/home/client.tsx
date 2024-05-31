@@ -19,7 +19,7 @@ export default function HomeClient() {
       w-full m-0 p-0 
       flex flex-col 
       justify-end items-center 
-      h-[calc(100vh-60px)]
+      h-[calc(100vh-50px)]
     `,
         styles.container
       )}

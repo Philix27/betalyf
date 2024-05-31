@@ -12,7 +12,7 @@ export default function SettingsPage() {
           "size-[80px] rounded-[40px] bg-primary flex items-center justify-center my-8"
         }
       >
-        <img src={AppImg.person} className="size-[60px] rounded-[30px]" />
+        <img src={AppImg.person} className="size-[50px] rounded-[30px]" />
       </div>
 
       <div className="w-[80%] flex flex-col items-center">
