@@ -6,15 +6,12 @@ import { TextB } from "@/comps"
 import { cn } from "@/lib"
 import {
   BookIcon,
-  Cog,
-  HomeIcon,
-  LucideDollarSign,
   LucideIcon,
-  MessageCircle,
   SearchIcon,
-  Tablet,
-  UserCog,
 } from "lucide-react"
+import { IconType } from "react-icons"
+import { GiMedicines } from "react-icons/gi"
+import { IoHomeOutline } from "react-icons/io5"
 
 export function BottomNav() {
   const router = useRouter()
@@ -61,30 +58,26 @@ export function BottomNav() {
     </div>
   )
 }
-const navItems: { title: string; Icon: LucideIcon; link: string }[] = [
-  {
-    title: "Dashboard",
-    link: "/dashboard",
-    Icon: HomeIcon,
-  },
-  {
-    title: "Search",
-    link: "/search",
-    Icon: SearchIcon,
-  },
-  {
-    title: "Appointments",
-    link: "/meetings",
-    Icon: BookIcon,
-  },
-  {
-    title: "Drugs",
-    link: "/pharmacy",
-    Icon: Tablet,
-  },
-  // {
-  //   title: "Profile",
-  //   link: "/profile",
-  //   Icon: Cog,
-  // },
-]
+const navItems: { title: string; Icon: LucideIcon | IconType; link: string }[] =
+  [
+    {
+      title: "Dashboard",
+      link: "/dashboard",
+      Icon: IoHomeOutline,
+    },
+    {
+      title: "Search",
+      link: "/search",
+      Icon: SearchIcon,
+    },
+    {
+      title: "Appointments",
+      link: "/meetings",
+      Icon: BookIcon,
+    },
+    {
+      title: "Drugs",
+      link: "/pharmacy",
+      Icon: GiMedicines,
+    },
+  ]

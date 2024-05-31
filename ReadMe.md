@@ -1,4 +1,4 @@
-![image](https://github.com/emiridbest/esusu/assets/6362475/10465297-a106-4d8c-a124-34340e849bce)
+<!-- ![image](https://github.com/emiridbest/esusu/assets/6362475/10465297-a106-4d8c-a124-34340e849bce) -->
 # BetaLyf
 
 This project is for the Build With Celo 6, Minipay Hackathon
@@ -63,6 +63,9 @@ Experience the power of Xpensa and take your financial management to new heights
 
 ## Screenshots
 <!-- Application snapshot -->
+![image](./assets/home.png)
+![image](./assets/dashboard.png)
+![image](./assets/book.png)
 <!-- Presentation snapshot -->
 
 

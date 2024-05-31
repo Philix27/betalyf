@@ -101,6 +101,7 @@ export default function ChatSection(props: {
         <div className="flex flex-col items-center justify-center space-y-4">
           <TextH>{props.data.name}</TextH>
           <TextB>DEPARTMENT: {props.data.department}</TextB>
+          <TextB className={"text-center  max-w-[80%]"}> {props.data.desc}</TextB>
           <TextB className="">
             Pick a time that would be convenient for you
           </TextB>
