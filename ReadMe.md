@@ -1,14 +1,34 @@
-<!-- ![image](https://github.com/emiridbest/esusu/assets/6362475/10465297-a106-4d8c-a124-34340e849bce) -->
 # BetaLyf
 
-This project is for the Build With Celo 6, Minipay Hackathon
+This project is for the Build With Celo 6, [Minipay Hackathon](https://build-with-celo-6.hackerearth.com/)
+
+![image](./assets/landing.jpg)
+
+## Short Description
+
+Introducing BetaLyf: Seamless healthcare at your fingertips! Access online consultations and purchase vital medical products from home. Experience the future of healthcare with BetaLyf. Your well-being, our priority. 
 
 ## Description
 
+Introducing BetaLyf, your gateway to seamless healthcare at your fingertips. Imagine a world where online consultations are just a tap away, connecting you to top medical professionals from the comfort of your home. With BetaLyf, you can also easily purchase vital medical products, from essential multivitamins to specialized tools for managing conditions like hypertension and diabetes. Experience the future of healthcare with BetaLyf, where your well-being is our priority.
+
 ## Problem
 
-Accessibility to healthcare has never been easier than it is today, yet we still find it difficult and challenging to find out time to visit our doctors or clinic for periodic checkup. What if there is a way to schedule a meeting with a doctor at any hour of your choice?
+- Limited Access to Healthcare: Many individuals struggle to access healthcare services due to geographical barriers or a lack of nearby medical facilities.
 
+- Time Constraints: Busy schedules and long wait times at clinics prevent people from getting timely medical consultations and care.
+
+- Management of Chronic Conditions: Patients with chronic conditions such as hypertension and diabetes often lack the tools and consistent support needed to effectively manage their health.
+
+- Availability of Medical Products: Obtaining essential medical products and supplements can be challenging, especially in remote or underserved areas.
+
+- High Costs: Healthcare services and medical products are often expensive, creating financial barriers for many people in need of care.
+
+- Lack of Personalized Care: Traditional healthcare systems may not always provide personalized care and recommendations tailored to individual health needs.
+
+- Inconvenience of In-Person Visits: The necessity of in-person visits for consultations and prescriptions can be inconvenient and sometimes impossible for those with mobility issues or busy lives.
+
+- Fragmented Healthcare Experience: Managing health can feel disjointed when services and products are spread across multiple providers and locations, leading to inefficiencies and gaps in care.
 
 ## Solution
 
@@ -22,31 +42,34 @@ This project was built using Next.js app router which communicates with a smart 
 A Trpc server with prisma orm and a postgres database is used to store more information off chain in order to reduce gas fees. The primary use case of the smart contract is to process payment.
 
 
-## Description
 
-Introducing Xpensa, your ultimate financial companion! Say goodbye to budgeting woes and hello to effortless money management. With Xpensa, you can create customized budgets tailored to your specific needs, whether it's for groceries, travel, or savings goals. Keep a close eye on your spending with intuitive tools that track your daily expenses, helping you stay on track and in control.
-
-But that's not all! Xpensa goes above and beyond by streamlining your invoicing process. Say farewell to tedious paperwork and hello to convenience. With just a few clicks, you can generate professional invoices and share them with clients seamlessly. What's more, Xpensa makes it easy for clients to settle their dues with a simple payment link, ensuring faster transactions and smoother cash flow for your business.
-
-Experience the power of Xpensa and take your financial management to new heights. Say hello to simplicity, efficiency, and peace of mind.
 
 ## Roadmap
 
 ## Challenges
 
-## Technical Solution
 
-
-### Tools
+### Tools & Frameworks used
 - Next.js, React, Wagmi, Solidity, Remix, Typescript
+- Wagmi, Ethers, Viem, WalletConnect
+- Atlaszk, Remix
 
 ### Languages
 
 - Typescript, Solidity
 
-### Frameworks used
+## How is it made?
 
-- Next.js, Trpc, Solidity, Wagmi
+This app was built using Next.js and TailwindCSS on the frontend, TRPC and Prisma on the backend.
+Both of which communicates with a deployed Smart contract using Ethers js and Wagmi.
+
+### Technical Solution
+<!-- Social connect & Minipay -->
+When  a user register's the email and wallet address is also registered using social connect 
+where the email is mapped to their wallet address. Once registered the user can book 
+a physician for consultation or buy any drugs from the pharmacy store. All payments can be made
+using Minipay - Opera mini
+
 
 ### Instructions
 
@@ -71,8 +94,9 @@ Experience the power of Xpensa and take your financial management to new heights
 
 ## Links
 
-- [Github link](https://github.com/Philix27/peerie)
-- [Vercel link](https://peerie.vercel.app/)
+- [Hackathon link](https://build-with-celo-6.hackerearth.com/)
+- [Github link](https://github.com/Philix27/betalyf)
+- [Vercel link](https://betalyf.vercel.app/)
 - [Video link](https://peerie.vercel.app/)
 
 
