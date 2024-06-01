@@ -1,18 +1,15 @@
-"use client";
+"use client"
 
-import React, { useState } from "react";
-import { Button, TextB, TextH } from "@/comps";
-import { externalCall } from "@/contract";
-import { cn } from "@/lib";
-import { useMinipay } from "@/sc";
-import { motion } from "framer-motion";
-import { useContractWrite, useSendTransaction } from "wagmi";
+import React, { useState } from "react"
+import { Button, TextB, TextH } from "@/comps"
+import { externalCall } from "@/contract"
+import { cn } from "@/lib"
+import { useMinipay } from "@/sc"
+import { motion } from "framer-motion"
+import { useContractWrite, useSendTransaction } from "wagmi"
 
-
-
-import { HeaderRow } from "./Headrow";
-import { IDataList } from "./data";
-
+import { HeaderRow } from "./Headrow"
+import { IDataList } from "./data"
 
 const sellerAddress = "0x462E5F272B8431562811126779da6EcaE51A5B40"
 
