@@ -1,20 +1,17 @@
-"use client";
+"use client"
 
-import React, { useState } from "react";
-import { useRouter } from "next/navigation";
-import { AppInput, AppSelect, Button, Form, TextH } from "@/comps";
-import { cn, trpc } from "@/lib";
-import { SCUtils } from "@/sc";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { $Enums } from "@prisma/client";
-import { useForm } from "react-hook-form";
-import { toast } from "sonner";
+import React, { useState } from "react"
+import { useRouter } from "next/navigation"
+import { AppInput, AppSelect, Button, Form, TextH } from "@/comps"
+import { cn, trpc } from "@/lib"
+import { SCUtils } from "@/sc"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { $Enums } from "@prisma/client"
+import { useForm } from "react-hook-form"
+import { toast } from "sonner"
 
-
-
-import { IFormSchema, defaultValues, formSchema } from "./schema";
-import styles from "./styles.module.css";
-
+import { IFormSchema, defaultValues, formSchema } from "./schema"
+import styles from "./styles.module.css"
 
 export default function SignUpForm(props: { walletAddress: `0x${string}` }) {
   const router = useRouter()
@@ -42,17 +39,17 @@ export default function SignUpForm(props: { walletAddress: `0x${string}` }) {
         )
         toast.success("Registered on social connect!")
       }
-      await t.mutateAsync({
-        email: values.email,
-        firstName: values.firstName,
-        lastName: values.lastName,
-        allergies: values.allergies,
-        isMale: IsMale,
-        age: parseInt(values.age),
-        walletAddress: "",
-        isClinician: IsClinician,
-        department: category,
-      })
+      // await t.mutateAsync({
+      //   email: values.email,
+      //   firstName: values.firstName,
+      //   lastName: values.lastName,
+      //   allergies: values.allergies,
+      //   isMale: IsMale,
+      //   age: parseInt(values.age),
+      //   walletAddress: "",
+      //   isClinician: IsClinician,
+      //   department: category,
+      // })
 
       toast.success("Account created!")
 

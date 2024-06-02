@@ -9,7 +9,7 @@ struct Payment {
     bool isDelivered;
 }
 
-contract PaymentForGoods {
+contract BetaLyf {
     address public admin;
 
     constructor(address _admin) {

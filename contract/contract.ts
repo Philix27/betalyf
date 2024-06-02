@@ -1,8 +1,8 @@
 import { BrowserProvider, Contract, ethers } from "ethers"
 import { parseEther } from "viem"
 
-import { AppContractAbi } from "./abi"
-import { exContractABI } from "./exAbi"
+import { AppContractAbi } from "./const/abi"
+import { exContractABI } from "./const/exAbi"
 import { fnNames } from "./functions"
 
 export const AppContract = {

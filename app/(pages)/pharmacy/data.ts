@@ -8,71 +8,137 @@ export type IDataList = {
 }
 export const dataList: IDataList[] = [
   {
-    name: "Dr. Chuks Okolie",
+    name: "Cardicare",
     department: "Peadiatric",
-    img: AppImg.secure,
-    desc: `Dr. Chuks is a dedicated pediatrician with a 
-    passion for providing comprehensive healthcare to
-    children from infancy through adolescence.
-    With a warm and compassionate approach,
-    Dr. Chuks specializes in preventive care,
-    diagnosis, and treatment of a wide range of pediatric conditions.
-    Committed to fostering healthy growth and development, Dr. Chuks
-    partners with families to ensure each child achieves their full
-    potential in a nurturing and supportive environment.`,
+    img: AppImg.drugs.cardiacare,
+    desc: `Dr. `,
   },
   {
     name: "Nurs. Lena Hertz",
     department: "Emergency",
-    img: AppImg.block,
+    img: AppImg.drugs.centrum,
     desc: `Dr. Lena is a dedicated pediatrician with a 
     passion for providing comprehensive healthcare to
-    children from infancy through adolescence.
-    With a warm and compassionate approach,
-    Dr. Lena specializes in preventive care,
-    diagnosis, and treatment of a wide range of pediatric conditions.
-    Committed to fostering healthy growth and development, Dr.Lena
-    partners with families to ensure each child achieves their full
-    potential in a nurturing and supportive environment.`,
+    children from infancy through adolescence.`,
   },
   {
-    name: "Dr. Millie Bobbie",
+    name: "Co Q20",
     department: "Orthopedic",
-    img: AppImg.green.homes,
+    img: AppImg.drugs.CoQ20,
     desc: `Dr. Millie is a dedicated pediatrician with a 
     passion for providing comprehensive healthcare to
-    children from infancy through adolescence.
-    With a warm and compassionate approach,
-    Dr. Millie specializes in preventive care,
-    diagnosis, and treatment of a wide range of pediatric conditions.
-    Committed to fostering healthy growth and development, Dr. Millie
-    partners with families to ensure each child achieves their full
-    potential in a nurturing and supportive environment.`,
+    children from infancy through adolescence.`,
   },
   {
-    name: "Dr. Raymond Lin",
+    name: "Centrum Advance",
     department: "Obstetrics",
-    img: AppImg.creditCard,
+    img: AppImg.drugs.centrumAdvance,
     desc: `Dr. Chuks is a dedicated pediatrician with a 
     passion for providing comprehensive healthcare to
-    children from infancy through adolescence.
-    With a warm and compassionate approach,
-    Dr. Chuks specializes in preventive care,
-    diagnosis, and treatment of a wide range of pediatric conditions.
-    Committed to fostering healthy growth and development, Dr. Raymond
-    partners with families to ensure each child achieves their full
-    potential in a nurturing and supportive environment.`,
+    children from infancy through adolescence.`,
   },
   {
-    name: "Pharm. Raymond Lin",
+    name: "Centrum Advance 50",
     department: "Pharmacy",
-    img: AppImg.creditCard,
+    img: AppImg.drugs.centrumAdvance50,
     desc: `Raymond is a knowledgeable and dedicated pharmacist committed to 
     providing exceptional pharmaceutical care and support to the community.
-    With extensive expertise in medication management, patient counseling,
-    and drug safety, Raymond ensures that each patient receives the correct
-    medications and understands their proper use. Passionate about promoting
-    health and wellness, Raymond works closely with healthcare providers to optimize
-    treatment outcomes and enhance patient well-being.`,
+    `,
+  },
+  {
+    name: "Centrum Men",
+    department: "Pharmacy",
+    img: AppImg.drugs.centrumMen,
+    desc: `Raymond is a knowledgeable and dedicated pharmacist committed to 
+    providing exceptional pharmaceutical care and support to the community.
+    `,
+  },
+  {
+    name: "Tab. Clarythromicin",
+    department: "Pharmacy",
+    img: AppImg.drugs.clarithyn,
+    desc: `Raymond is a knowledgeable and dedicated pharmacist committed to 
+    providing exceptional pharmaceutical care and support to the community.
+    `,
+  },
+  {
+    name: "Tab. Clarythromicin",
+    department: "Pharmacy",
+    img: AppImg.drugs.daravitForte,
+    desc: `Raymond is a knowledgeable and dedicated pharmacist committed to 
+    providing exceptional pharmaceutical care and support to the community.
+    `,
+  },
+  {
+    name: "Tab. Clarythromicin",
+    department: "Pharmacy",
+    img: AppImg.drugs.diabetes,
+    desc: `Raymond is a knowledgeable and dedicated pharmacist committed to 
+    providing exceptional pharmaceutical care and support to the community.
+    `,
+  },
+  {
+    name: "Tab. Clarythromicin",
+    department: "Pharmacy",
+    img: AppImg.drugs.ginsomin,
+    desc: `Raymond is a knowledgeable and dedicated pharmacist committed to 
+    providing exceptional pharmaceutical care and support to the community.
+    `,
+  },
+  {
+    name: "Tab. Clarythromicin",
+    department: "Pharmacy",
+    img: AppImg.drugs.immuneace,
+    desc: `Raymond is a knowledgeable and dedicated pharmacist committed to 
+    providing exceptional pharmaceutical care and support to the community.
+    `,
+  },
+  {
+    name: "Tab. Clarythromicin",
+    department: "Pharmacy",
+    img: AppImg.drugs.natb,
+    desc: `Raymond is a knowledgeable and dedicated pharmacist committed to 
+    providing exceptional pharmaceutical care and support to the community.
+    `,
+  },
+  {
+    name: "Tab. Clarythromicin",
+    department: "Pharmacy",
+    img: AppImg.drugs.omron,
+    desc: `Raymond is a knowledgeable and dedicated pharmacist committed to 
+    providing exceptional pharmaceutical care and support to the community.
+    `,
+  },
+  {
+    name: "Tab. Clarythromicin",
+    department: "Pharmacy",
+    img: AppImg.drugs.voltaren,
+    desc: `Raymond is a knowledgeable and dedicated pharmacist committed to 
+    providing exceptional pharmaceutical care and support to the community.
+    `,
+  },
+  {
+    name: "Tab. Clarythromicin",
+    department: "Pharmacy",
+    img: AppImg.drugs.wellman70,
+    desc: `Raymond is a knowledgeable and dedicated pharmacist committed to 
+    providing exceptional pharmaceutical care and support to the community.
+    `,
+  },
+  {
+    name: "Tab. Clarythromicin",
+    department: "Pharmacy",
+    img: AppImg.drugs.wellmanOrigin,
+    desc: `Raymond is a knowledgeable and dedicated pharmacist committed to 
+    providing exceptional pharmaceutical care and support to the community.
+    `,
+  },
+  {
+    name: "Tab. Clarythromicin",
+    department: "Pharmacy",
+    img: AppImg.drugs.wellwoman50,
+    desc: `Raymond is a knowledgeable and dedicated pharmacist committed to 
+    providing exceptional pharmaceutical care and support to the community.
+    `,
   },
 ]

@@ -88,14 +88,13 @@ export default function DetailsSection(props: {
         <div className="flex flex-col items-center justify-center mt-[30px] mb-[20px]">
           <img
             src={props.data.img}
-            className="h-[100px] w-[100px] rounded-[50px]"
+            className="h-[100px] w-[100px] rounded-[10px]"
           />
         </div>
         <div className="flex flex-col items-center justify-center space-y-4">
           <TextH>{props.data.name}</TextH>
           <TextB>DEPARTMENT: {props.data.department}</TextB>
           <TextB className={"text-center  max-w-[80%]"}>
-            {" "}
             {props.data.desc}
           </TextB>
           <TextB className="">

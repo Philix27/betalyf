@@ -43,4 +43,25 @@ export class AppImg {
     wallet: "/med/wallet.png",
     whiteFile: "/med/white_file.png",
   }
+
+  static drugs = {
+    cardiacare: "/drugs/cardicare.webp",
+    centrum: "/drugs/centrum.webp",
+    centrumAdvance: "/drugs/centrumAdvance.webp",
+    centrumAdvance50: "/drugs/centrumAdvance50.webp",
+    centrumMen: "/drugs/centrumMen.webp",
+    clarithyn: "/drugs/clarithyn.webp",
+    CoQ20: "/drugs/CoQ20.webp",
+    daravitForte: "/drugs/daravitForte.webp",
+    diabetes: "/drugs/diabetes.webp",
+    ginsomin: "/drugs/ginsomin.webp",
+    immuneace: "/drugs/immuneace.jpg",
+    natb: "/drugs/natb.webp",
+    omron: "/drugs/omron.webp",
+    smron2: "/drugs/smron2.webp",
+    voltaren: "/drugs/voltaren.webp",
+    wellman70: "/drugs/wellman70.webp",
+    wellmanOrigin: "/drugs/wellmanOrigin.webp",
+    wellwoman50: "/drugs/wellwoman50.webp",
+  }
 }
