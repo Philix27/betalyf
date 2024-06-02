@@ -9,13 +9,13 @@ export type IDataList = {
 export const dataList: IDataList[] = [
   {
     name: "Cardicare",
-    department: "Peadiatric",
+    department: "Hypertension",
     img: AppImg.drugs.cardiacare,
     desc: `Dr. `,
   },
   {
-    name: "Nurs. Lena Hertz",
-    department: "Emergency",
+    name: "Centrum - Mens performance",
+    department: "Men",
     img: AppImg.drugs.centrum,
     desc: `Dr. Lena is a dedicated pediatrician with a 
     passion for providing comprehensive healthcare to
@@ -23,7 +23,7 @@ export const dataList: IDataList[] = [
   },
   {
     name: "Co Q20",
-    department: "Orthopedic",
+    department: "Mental",
     img: AppImg.drugs.CoQ20,
     desc: `Dr. Millie is a dedicated pediatrician with a 
     passion for providing comprehensive healthcare to
@@ -31,7 +31,7 @@ export const dataList: IDataList[] = [
   },
   {
     name: "Centrum Advance",
-    department: "Obstetrics",
+    department: "Health",
     img: AppImg.drugs.centrumAdvance,
     desc: `Dr. Chuks is a dedicated pediatrician with a 
     passion for providing comprehensive healthcare to
@@ -39,7 +39,7 @@ export const dataList: IDataList[] = [
   },
   {
     name: "Centrum Advance 50",
-    department: "Pharmacy",
+    department: "Elderly",
     img: AppImg.drugs.centrumAdvance50,
     desc: `Raymond is a knowledgeable and dedicated pharmacist committed to 
     providing exceptional pharmaceutical care and support to the community.
@@ -47,7 +47,7 @@ export const dataList: IDataList[] = [
   },
   {
     name: "Centrum Men",
-    department: "Pharmacy",
+    department: "Men",
     img: AppImg.drugs.centrumMen,
     desc: `Raymond is a knowledgeable and dedicated pharmacist committed to 
     providing exceptional pharmaceutical care and support to the community.
@@ -55,87 +55,87 @@ export const dataList: IDataList[] = [
   },
   {
     name: "Tab. Clarythromicin",
-    department: "Pharmacy",
+    department: "Antibiotics",
     img: AppImg.drugs.clarithyn,
     desc: `Raymond is a knowledgeable and dedicated pharmacist committed to 
     providing exceptional pharmaceutical care and support to the community.
     `,
   },
   {
-    name: "Tab. Clarythromicin",
-    department: "Pharmacy",
+    name: "Daravite Forte",
+    department: "Multivitamin",
     img: AppImg.drugs.daravitForte,
     desc: `Raymond is a knowledgeable and dedicated pharmacist committed to 
     providing exceptional pharmaceutical care and support to the community.
     `,
   },
   {
-    name: "Tab. Clarythromicin",
-    department: "Pharmacy",
+    name: "Diabetmin",
+    department: "Diabetes",
     img: AppImg.drugs.diabetes,
     desc: `Raymond is a knowledgeable and dedicated pharmacist committed to 
     providing exceptional pharmaceutical care and support to the community.
     `,
   },
   {
-    name: "Tab. Clarythromicin",
-    department: "Pharmacy",
+    name: "Gingsomin",
+    department: "Multivitamin",
     img: AppImg.drugs.ginsomin,
     desc: `Raymond is a knowledgeable and dedicated pharmacist committed to 
     providing exceptional pharmaceutical care and support to the community.
     `,
   },
   {
-    name: "Tab. Clarythromicin",
-    department: "Pharmacy",
+    name: "Immunace",
+    department: "Multivitamin",
     img: AppImg.drugs.immuneace,
     desc: `Raymond is a knowledgeable and dedicated pharmacist committed to 
     providing exceptional pharmaceutical care and support to the community.
     `,
   },
   {
-    name: "Tab. Clarythromicin",
-    department: "Pharmacy",
+    name: "NatB",
+    department: "Multivitamin",
     img: AppImg.drugs.natb,
     desc: `Raymond is a knowledgeable and dedicated pharmacist committed to 
     providing exceptional pharmaceutical care and support to the community.
     `,
   },
   {
-    name: "Tab. Clarythromicin",
-    department: "Pharmacy",
+    name: "Omron",
+    department: "Hypertension",
     img: AppImg.drugs.omron,
     desc: `Raymond is a knowledgeable and dedicated pharmacist committed to 
     providing exceptional pharmaceutical care and support to the community.
     `,
   },
   {
-    name: "Tab. Clarythromicin",
-    department: "Pharmacy",
+    name: "Voltaren",
+    department: "Orthopedic",
     img: AppImg.drugs.voltaren,
     desc: `Raymond is a knowledgeable and dedicated pharmacist committed to 
     providing exceptional pharmaceutical care and support to the community.
     `,
   },
   {
-    name: "Tab. Clarythromicin",
-    department: "Pharmacy",
+    name: "Wellman 70",
+    department: "Elderly",
     img: AppImg.drugs.wellman70,
     desc: `Raymond is a knowledgeable and dedicated pharmacist committed to 
     providing exceptional pharmaceutical care and support to the community.
     `,
   },
   {
-    name: "Tab. Clarythromicin",
-    department: "Pharmacy",
+    name: "Wellman Origin",
+    department: "Multivitamin",
     img: AppImg.drugs.wellmanOrigin,
     desc: `Raymond is a knowledgeable and dedicated pharmacist committed to 
     providing exceptional pharmaceutical care and support to the community.
     `,
   },
   {
-    name: "Tab. Clarythromicin",
-    department: "Pharmacy",
+    name: "Wellwoman 50",
+    department: "Multivitamin",
     img: AppImg.drugs.wellwoman50,
     desc: `Raymond is a knowledgeable and dedicated pharmacist committed to 
     providing exceptional pharmaceutical care and support to the community.

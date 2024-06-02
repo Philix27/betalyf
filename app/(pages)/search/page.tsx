@@ -22,14 +22,15 @@ export default function ChatPage() {
       <div className="w-full flex items-center justify-center my-2 ">
         <InputText Icon={SearchIcon} placeH={"Find a Physician"} className="w-[80%]" />
       </div>
-      {chatData.concat(chatData, chatData, chatData).map((val, i) => (
+      {chatData.map((val, i) => (
         <div
           key={i}
           className="flex border-accent py-4 px-3"
           onClick={() => setupModal(val)}
         >
           <div className="mr-[20px]">
-            <img src={val.img} alt="P" className="size-[50px] rounded-[5px]" />
+            <img src={val.img} alt="P"
+              className="size-[50px] rounded-[5px]" />
           </div>
           <div className="flex flex-col justify-around">
             <TextH v="h5">{val.name}</TextH>

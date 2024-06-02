@@ -1,8 +1,4 @@
-import { AppImg } from "@/lib";
-
-
-
-
+import { AppImg } from "@/lib"
 
 export type IChatData = {
   name: string
@@ -42,7 +38,7 @@ export const chatData: IChatData[] = [
   {
     name: "Dr. Millie Bobbie",
     department: "Orthopedic",
-    img: AppImg.green.homes,
+    img: AppImg.chain,
     desc: `Dr. Millie is a dedicated pediatrician with a 
     passion for providing comprehensive healthcare to
     children from infancy through adolescence.

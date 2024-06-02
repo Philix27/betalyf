@@ -6,6 +6,7 @@ import { transferCusdTokens } from "@/contract"
 import { cn } from "@/lib"
 import { useMinipay } from "@/sc"
 import { motion } from "framer-motion"
+import { toast } from "sonner"
 
 import { HeaderRow } from "./Headrow"
 import { IChatData } from "./chatData"
@@ -27,8 +28,8 @@ export default function InfoSection(props: {
       userAddress: walletAddress!,
       to: sellerAddress,
     })
-      .then(() => console.log("Transfer successful"))
-      .catch((error: any) => console.error("Error during transfer:", error))
+      .then(() => toast.success("Transfer successful"))
+      .catch((error: any) => toast.error("Oops, an error occurred"))
   }
 
   return (
@@ -56,7 +57,6 @@ export default function InfoSection(props: {
           <TextH>{props.data.name}</TextH>
           <TextB>DEPARTMENT: {props.data.department}</TextB>
           <TextB className={"text-center  max-w-[80%]"}>
-            {" "}
             {props.data.desc}
           </TextB>
           <TextB className="">

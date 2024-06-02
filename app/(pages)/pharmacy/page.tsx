@@ -26,7 +26,7 @@ export default function PharmacyPage() {
           className="w-[80%]"
         />
       </div>
-      <div className={"grid grid-cols-2 gap-4"}>
+      <div className={"grid grid-cols-2 gap-4 mb-[80px] mt-4"}>
         {dataList.map((val, i) => (
           <div
             key={i}
@@ -37,10 +37,10 @@ export default function PharmacyPage() {
               <img
                 src={val.img}
                 alt="P"
-                className="h-[200] w-full rounded-[5px]"
+                className="h-[200] w-full rounded-[5px] bg-card"
               />
             </div>
-            <div className="flex flex-col justify-around py-1 px-2 ">
+            <div className="flex flex-col justify-around py-2 px-4 w-full">
               <TextH v="h5">{val.name}</TextH>
               <TextB>{val.department}</TextB>
             </div>
