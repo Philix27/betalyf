@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import React from "react"
 import { Button, TextB, TextH } from "@/comps"
 import { motion } from "framer-motion"
 import { toast } from "sonner"
@@ -40,6 +40,9 @@ export default function DetailsSection(props: {
         </div>
         <div className="flex flex-col items-center justify-center space-y-4">
           <TextH>{props.data.name}</TextH>
+          <TextB className={"text-center  max-w-[80%]"}>
+            ₦{props.data.price}
+          </TextB>
           <TextB>category: {props.data.department}</TextB>
           <TextB className={"text-center  max-w-[80%]"}>
             {props.data.desc}

@@ -73,9 +73,15 @@ export const useProductStore = create(
               if (product.id !== productId) {
                 return product
               } else {
+                if (product.quantity > 0) {
+                  return {
+                    ...product,
+                    quantity: product.quantity - 1,
+                  }
+                }
                 return {
                   ...product,
-                  quantity: product.quantity - 1,
+                  quantity: product.quantity,
                 }
               }
             }

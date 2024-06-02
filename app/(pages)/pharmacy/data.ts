@@ -5,6 +5,7 @@ export type IDataList = {
   department: string
   img: string
   desc: string
+  price: number
 }
 export const dataList: IDataList[] = [
   {
@@ -12,6 +13,7 @@ export const dataList: IDataList[] = [
     department: "Hypertension",
     img: AppImg.drugs.cardiacare,
     desc: `Dr. `,
+    price: 1200,
   },
   {
     name: "Centrum - Mens performance",
@@ -20,6 +22,7 @@ export const dataList: IDataList[] = [
     desc: `Dr. Lena is a dedicated pediatrician with a 
     passion for providing comprehensive healthcare to
     children from infancy through adolescence.`,
+    price: 1200,
   },
   {
     name: "Co Q20",
@@ -28,6 +31,7 @@ export const dataList: IDataList[] = [
     desc: `Dr. Millie is a dedicated pediatrician with a 
     passion for providing comprehensive healthcare to
     children from infancy through adolescence.`,
+    price: 1200,
   },
   {
     name: "Centrum Advance",
@@ -36,6 +40,7 @@ export const dataList: IDataList[] = [
     desc: `Dr. Chuks is a dedicated pediatrician with a 
     passion for providing comprehensive healthcare to
     children from infancy through adolescence.`,
+    price: 1200,
   },
   {
     name: "Centrum Advance 50",
@@ -44,6 +49,7 @@ export const dataList: IDataList[] = [
     desc: `Raymond is a knowledgeable and dedicated pharmacist committed to 
     providing exceptional pharmaceutical care and support to the community.
     `,
+    price: 1200,
   },
   {
     name: "Centrum Men",
@@ -52,6 +58,7 @@ export const dataList: IDataList[] = [
     desc: `Raymond is a knowledgeable and dedicated pharmacist committed to 
     providing exceptional pharmaceutical care and support to the community.
     `,
+    price: 1200,
   },
   {
     name: "Tab. Clarythromicin",
@@ -60,6 +67,7 @@ export const dataList: IDataList[] = [
     desc: `Raymond is a knowledgeable and dedicated pharmacist committed to 
     providing exceptional pharmaceutical care and support to the community.
     `,
+    price: 1200,
   },
   {
     name: "Daravite Forte",
@@ -68,6 +76,7 @@ export const dataList: IDataList[] = [
     desc: `Raymond is a knowledgeable and dedicated pharmacist committed to 
     providing exceptional pharmaceutical care and support to the community.
     `,
+    price: 1200,
   },
   {
     name: "Diabetmin",
@@ -76,6 +85,7 @@ export const dataList: IDataList[] = [
     desc: `Raymond is a knowledgeable and dedicated pharmacist committed to 
     providing exceptional pharmaceutical care and support to the community.
     `,
+    price: 1200,
   },
   {
     name: "Gingsomin",
@@ -84,6 +94,7 @@ export const dataList: IDataList[] = [
     desc: `Raymond is a knowledgeable and dedicated pharmacist committed to 
     providing exceptional pharmaceutical care and support to the community.
     `,
+    price: 1200,
   },
   {
     name: "Immunace",
@@ -92,6 +103,7 @@ export const dataList: IDataList[] = [
     desc: `Raymond is a knowledgeable and dedicated pharmacist committed to 
     providing exceptional pharmaceutical care and support to the community.
     `,
+    price: 1200,
   },
   {
     name: "NatB",
@@ -100,6 +112,7 @@ export const dataList: IDataList[] = [
     desc: `Raymond is a knowledgeable and dedicated pharmacist committed to 
     providing exceptional pharmaceutical care and support to the community.
     `,
+    price: 1200,
   },
   {
     name: "Omron",
@@ -108,6 +121,7 @@ export const dataList: IDataList[] = [
     desc: `Raymond is a knowledgeable and dedicated pharmacist committed to 
     providing exceptional pharmaceutical care and support to the community.
     `,
+    price: 1200,
   },
   {
     name: "Voltaren",
@@ -116,6 +130,7 @@ export const dataList: IDataList[] = [
     desc: `Raymond is a knowledgeable and dedicated pharmacist committed to 
     providing exceptional pharmaceutical care and support to the community.
     `,
+    price: 1200,
   },
   {
     name: "Wellman 70",
@@ -124,6 +139,7 @@ export const dataList: IDataList[] = [
     desc: `Raymond is a knowledgeable and dedicated pharmacist committed to 
     providing exceptional pharmaceutical care and support to the community.
     `,
+    price: 1200,
   },
   {
     name: "Wellman Origin",
@@ -132,6 +148,7 @@ export const dataList: IDataList[] = [
     desc: `Raymond is a knowledgeable and dedicated pharmacist committed to 
     providing exceptional pharmaceutical care and support to the community.
     `,
+    price: 1200,
   },
   {
     name: "Wellwoman 50",
@@ -140,5 +157,6 @@ export const dataList: IDataList[] = [
     desc: `Raymond is a knowledgeable and dedicated pharmacist committed to 
     providing exceptional pharmaceutical care and support to the community.
     `,
+    price: 1200,
   },
 ]

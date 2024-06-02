@@ -2,15 +2,18 @@
 
 import React, { useState } from "react"
 import { Button, TextB, TextH } from "@/comps"
+import { AppStores } from "@/lib"
 import { SearchIcon } from "lucide-react"
 
 import { InputText } from "../_comps"
 import { IDataList, dataList } from "./data"
 import ChatSection from "./details"
+import { toast } from "sonner"
 
 export default function PharmacyPage() {
   const [showActiveChat, setShowActiveChat] = useState(false)
   const [_chatData, setChatData] = useState<IDataList>()
+  const state = AppStores.useProductStore()
 
   function setupModal(data: IDataList) {
     setShowActiveChat(true)
@@ -42,9 +45,23 @@ export default function PharmacyPage() {
             </div>
             <div className="flex flex-col justify-around py-2 px-4 w-full">
               <TextH v="h5">{val.name}</TextH>
-              <TextB>{val.department}</TextB>
+              <TextB>₦{val.price}</TextB>
             </div>
-            <Button className={"w-full"}>Add</Button>
+            <Button
+              className={"w-full"}
+              onClick={() => {
+                state.addToCart({
+                  id: i,
+                  name: val.name,
+                  image: val.img,
+                  price: val.price,
+                  quantity: 0,
+                });
+                toast("Added to cart");
+              }}
+            >
+              Add
+            </Button>
           </div>
         ))}
       </div>

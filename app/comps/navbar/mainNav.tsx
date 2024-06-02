@@ -3,11 +3,8 @@
 import React, { useEffect, useState } from "react"
 import Link from "next/link"
 import { usePathname, useRouter } from "next/navigation"
-import { Button, Icons } from "@/comps"
 import { AppStores, NavItem, cn } from "@/lib"
-import { MenuIcon, SidebarClose, User } from "lucide-react"
-
-import { ThemeToggle } from "@/app/comps"
+import { ShoppingCart, User } from "lucide-react"
 
 import { siteConfig } from "./site"
 
@@ -51,14 +48,18 @@ export function NavbarHeader({ items }: MainNavProps) {
           </Link>
         </div>
 
-        <div className="flex items-center justify-center">
-          <div className="">
+        <div className="">
+          <div className="flex items-center ">
             {showIcon() && (
               <Link href="/profile">
                 <User className="h-[1.5rem] w-[1.3rem text-primary-foreground" />
               </Link>
             )}
-
+            {pathName === "/pharmacy" && (
+              <Link href="/basket">
+                <ShoppingCart className="h-[1.5rem] w-[1.3rem text-primary-foreground ml-3" />
+              </Link>
+            )}
             {/* <ThemeToggle /> */}
           </div>
         </div>
