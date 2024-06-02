@@ -2,7 +2,7 @@
 
 import React, { useState } from "react"
 import { Button, TextB, TextH } from "@/comps"
-import { transferCusdTokens } from "@/contract"
+import { AppContract, transferCusdTokens } from "@/contract"
 import { cn } from "@/lib"
 import { useMinipay } from "@/sc"
 import { motion } from "framer-motion"
@@ -10,8 +10,6 @@ import { toast } from "sonner"
 
 import { HeaderRow } from "./Headrow"
 import { IChatData } from "./chatData"
-
-const sellerAddress = "0x462E5F272B8431562811126779da6EcaE51A5B40"
 
 export default function InfoSection(props: {
   setShowActiveChat: React.Dispatch<React.SetStateAction<boolean>>
@@ -26,7 +24,7 @@ export default function InfoSection(props: {
       env: "CUSD_TESTNET",
       amount: 1,
       userAddress: walletAddress!,
-      to: sellerAddress,
+      to: AppContract.secondWallet,
     })
       .then(() => toast.success("Transfer successful"))
       .catch((error: any) => toast.error("Oops, an error occurred"))

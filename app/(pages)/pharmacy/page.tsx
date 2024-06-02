@@ -4,11 +4,11 @@ import React, { useState } from "react"
 import { Button, TextB, TextH } from "@/comps"
 import { AppStores } from "@/lib"
 import { SearchIcon } from "lucide-react"
+import { toast } from "sonner"
 
 import { InputText } from "../_comps"
 import { IDataList, dataList } from "./data"
 import ChatSection from "./details"
-import { toast } from "sonner"
 
 export default function PharmacyPage() {
   const [showActiveChat, setShowActiveChat] = useState(false)
@@ -34,10 +34,14 @@ export default function PharmacyPage() {
           <div
             key={i}
             className="flex flex-col border-accent bg-card items-start justify-between"
-            onClick={() => setupModal(val)}
           >
             <div className="">
               <img
+                onClick={(e) => {
+                  e.preventDefault()
+                  e.stopPropagation()
+                  setupModal(val)
+                }}
                 src={val.img}
                 alt="P"
                 className="h-[200] w-full rounded-[5px] bg-card"
@@ -56,8 +60,8 @@ export default function PharmacyPage() {
                   image: val.img,
                   price: val.price,
                   quantity: 0,
-                });
-                toast("Added to cart");
+                })
+                toast("Added to cart")
               }}
             >
               Add
