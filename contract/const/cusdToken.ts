@@ -1,5 +1,17 @@
-import { BrowserProvider, Contract, ethers } from "ethers"
-import { TokenAddress, getUserAddress } from "./utils"
+import { BrowserProvider, ethers } from "ethers"
+
+export type ITokenType =
+  | "CUSD_MAINNET"
+  | "CUSD_TESTNET"
+  | "CELO_MAINNET"
+  | "CELO_TESTNET"
+
+export const TokenAddress: Record<ITokenType, string> = {
+  CUSD_MAINNET: "0x765DE816845861e75A25fCA122bb6898B8B1282a",
+  CUSD_TESTNET: "0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1",
+  CELO_MAINNET: "",
+  CELO_TESTNET: "",
+}
 
 // Define the ERC20 token ABI (simplified version)
 const erc20Abi = [
@@ -9,19 +21,17 @@ const erc20Abi = [
   "function allowance(address owner, address spender) view returns (uint256)",
 ]
 
-export async function transferCusdTokens(
-  userAddress: string,
-  to: string,
+export async function transferCusdTokens(props: {
+  env: ITokenType
+  userAddress: string
+  to: string
   amount: number
-) {
+}) {
+  const { env, userAddress, to, amount } = props
   const provider = new BrowserProvider(window.ethereum)
   const signer = await provider.getSigner(userAddress)
 
-  const tokenContract = new ethers.Contract(
-    TokenAddress["CUSD_TESTNET"],
-    erc20Abi,
-    signer
-  )
+  const tokenContract = new ethers.Contract(TokenAddress[env], erc20Abi, signer)
 
   const recipient = to
   const tokenAmount = ethers.parseUnits(amount.toString(), 18) // Assuming the token has 18 decimals

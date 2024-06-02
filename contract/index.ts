@@ -1,3 +1,3 @@
 export * from "./functions"
 export * from "./contract"
-export * from "./const/abi"
+export * from "./const"

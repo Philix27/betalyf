@@ -1,15 +1,6 @@
-export type ITokenType =
-  | "CUSD_MAINNET"
-  | "CUSD_TESTNET"
-  | "CELO_MAINNET"
-  | "CELO_TESTNET"
+import { BrowserProvider, Contract } from "ethers"
 
-export const TokenAddress: Record<ITokenType, string> = {
-  CUSD_MAINNET: "0x765DE816845861e75A25fCA122bb6898B8B1282a",
-  CUSD_TESTNET: "0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1",
-  CELO_MAINNET: "",
-  CELO_TESTNET: "",
-}
+import { AppContract } from "./contract"
 
 export async function getUserAddress() {
   if (window.ethereum) {
@@ -18,5 +9,12 @@ export async function getUserAddress() {
     })
     return accounts[0] as string
   }
-//   return false
+  //   return false
+}
+
+export async function geAppContract(userAddress: string) {
+  const provider = new BrowserProvider(window.ethereum)
+  const signer = await provider.getSigner(userAddress)
+
+  return new Contract(AppContract.address, AppContract.abi, signer)
 }
