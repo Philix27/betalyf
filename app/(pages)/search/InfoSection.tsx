@@ -2,85 +2,33 @@
 
 import React, { useState } from "react"
 import { Button, TextB, TextH } from "@/comps"
-import {
-  AppContract,
-  AppContractAbi,
-  externalCall,
-  fnNames,
-  testCall,
-} from "@/contract"
-import { transferCusdTokens } from "@/contract/transferCusd"
+import { transferCusdTokens } from "@/contract"
 import { cn } from "@/lib"
 import { useMinipay } from "@/sc"
-import { parseEther } from "ethers"
-// import { parseEther } from "ethers"
 import { motion } from "framer-motion"
-import { useContractWrite, useSendTransaction, useWriteContract } from "wagmi"
 
 import { HeaderRow } from "./Headrow"
 import { IChatData } from "./chatData"
 
 const sellerAddress = "0x462E5F272B8431562811126779da6EcaE51A5B40"
-export default function ChatSection(props: {
+export default function InfoSection(props: {
   setShowActiveChat: React.Dispatch<React.SetStateAction<boolean>>
   data: IChatData
 }) {
   const [selectTime, setSelectTime] = useState("2 - 4am")
-  const { sendTransaction } = useSendTransaction()
-  // const { writeContract } = useWriteContract()
 
   const { walletAddress } = useMinipay()
-  // const { config } = usePrepareContractWrite({
-  //   addressOrName: contractAddress,
-  //   contractInterface: contractABI,
-  //   functionName: "payableFunction",
-  //   overrides: {
-  //     value: amount ? parseEther(amount) : undefined,
-  //   },
-  // })
-
-  const { isLoading, isSuccess, isError, writeContract, data } =
-    useContractWrite()
 
   const onSubmit = () => {
-    transferCusdTokens(sellerAddress, 5)
-      .then(() => console.log("Transfer successful"))
-      .catch((error) => console.error("Error during transfer:", error))
-  }
-  // const onWagmi = () => {
-  //   sendTransaction({
-  //     to: sellerAddress,
-  //     value: parseEther("1.0"),
-  //   })
-  // }
-  const onEthers = () => {
-    externalCall({
-      _seller: sellerAddress,
+    transferCusdTokens({
+      env: "CUSD_TESTNET",
+      amount: 1,
+      userAddress: walletAddress!,
+      to: sellerAddress,
     })
+      .then(() => console.log("Transfer successful"))
+      .catch((error: any) => console.error("Error during transfer:", error))
   }
-
-  // const onWagmiWrite = () => {
-  //   writeContract({
-  //     address: AppContract.address as `0x${string}`,
-  //     functionName: "createPayment",
-  //     abi: [AppContractAbi],
-  //     args: [sellerAddress],
-  //     value: parseEther("1"),
-  //   })
-  //   console.log("WriteContract")
-  // }
-
-  if (!isLoading) {
-    console.log("WriteContractData:", data)
-  }
-  // const onWagmiWrite = () => {
-  //   writeContract({
-  //     abi: AppContract.abi,
-  //     address: AppContract.address as `0x${string}`,
-  //     functionName: AppContract.fnNames.createPayment,
-  //     args: [sellerAddress],
-  //   })
-  // }
 
   return (
     <motion.div

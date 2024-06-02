@@ -5,7 +5,7 @@ import { TextB, TextH } from "@/comps"
 import { SearchIcon } from "lucide-react"
 
 import { InputText } from "../_comps"
-import ChatSection from "./ChatSection"
+import ChatSection from "./InfoSection"
 import { IChatData, chatData } from "./chatData"
 
 export default function ChatPage() {

@@ -1,4 +1,8 @@
-import { BrowserProvider, ethers } from "ethers"
+import { BrowserProvider, ethers } from "ethers";
+
+
+
+
 
 export type ITokenType =
   | "CUSD_MAINNET"
@@ -23,7 +27,7 @@ const erc20Abi = [
 
 export async function transferCusdTokens(props: {
   env: ITokenType
-  userAddress: string
+  userAddress: `0x${string}`
   to: string
   amount: number
 }) {

@@ -1,16 +1,5 @@
-import { BrowserProvider, Contract, ethers } from "ethers"
 import { parseEther } from "viem"
-
-import { AppContractAbi } from "./const/abi"
-import { exContractABI } from "./const/exAbi"
-import { fnNames } from "./functions"
 import { geAppContract } from "./utils"
-
-export const AppContract = {
-  address: "0xb281c5a07C832B85b54c57AB2836dD642841aEC3",
-  abi: AppContractAbi,
-  fnNames,
-}
 
 export const testCall = async (props: {
   userAddress: string
@@ -32,46 +21,46 @@ export const testCall = async (props: {
   }
 }
 
-export const externalCall = async (props: {
-  // _signerAddress: `0x${string}` | undefined
-  _seller: `0x${string}` | undefined
-}) => {
-  if (window.ethereum) {
-    let accounts = await window.ethereum.request({
-      method: "eth_requestAccounts",
-    })
+// export const externalCall = async (props: {
+//   // _signerAddress: `0x${string}` | undefined
+//   _seller: `0x${string}` | undefined
+// }) => {
+//   if (window.ethereum) {
+//     let accounts = await window.ethereum.request({
+//       method: "eth_requestAccounts",
+//     })
 
-    let userAddress = accounts[0]
+//     let userAddress = accounts[0]
 
-    const provider = new BrowserProvider(window.ethereum)
+//     const provider = new BrowserProvider(window.ethereum)
 
-    const signer = await provider.getSigner(userAddress)
+//     const signer = await provider.getSigner(userAddress)
 
-    console.log("Reached testCall", "props:", props)
+//     console.log("Reached testCall", "props:", props)
 
-    //   Txn
-    const tx = {
-      to: props._seller,
-      value: parseEther("1.0"),
-    }
+//     //   Txn
+//     const tx = {
+//       to: props._seller,
+//       value: parseEther("1.0"),
+//     }
 
-    // signer.sendTransaction(tx)
-    //   Contract call
-    const contract = new Contract(
-      "0x5976D626609c69f986EC7e375eE1168DE54BdF20",
-      exContractABI,
-      signer
-    )
+//     // signer.sendTransaction(tx)
+//     //   Contract call
+//     const contract = new Contract(
+//       "0x5976D626609c69f986EC7e375eE1168DE54BdF20",
+//       exContractABI,
+//       signer
+//     )
 
-    try {
-      const txn = await contract.addContributorToDirectory(
-        "a username",
-        userAddress
-      )
+//     try {
+//       const txn = await contract.addContributorToDirectory(
+//         "a username",
+//         userAddress
+//       )
 
-      await txn.wait()
-    } catch (error) {
-      console.log("An error occurred", error)
-    }
-  }
-}
+//       await txn.wait()
+//     } catch (error) {
+//       console.log("An error occurred", error)
+//     }
+//   }
+// }
