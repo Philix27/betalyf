@@ -1,8 +1,4 @@
-import { BrowserProvider, ethers } from "ethers";
-
-
-
-
+import { BrowserProvider, ethers } from "ethers"
 
 export type ITokenType =
   | "CUSD_MAINNET"

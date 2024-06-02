@@ -2,11 +2,8 @@
 
 import React, { useState } from "react"
 import { Button, TextB, TextH } from "@/comps"
-import { externalCall } from "@/contract"
 import { cn } from "@/lib"
-import { useMinipay } from "@/sc"
 import { motion } from "framer-motion"
-import { useContractWrite, useSendTransaction } from "wagmi"
 
 import { HeaderRow } from "./Headrow"
 import { IDataList } from "./data"
@@ -18,57 +15,7 @@ export default function DetailsSection(props: {
   data: IDataList
 }) {
   const [selectTime, setSelectTime] = useState("2 - 4am")
-  const { sendTransaction } = useSendTransaction()
-  // const { writeContract } = useWriteContract()
-
-  const { walletAddress } = useMinipay()
-  // const { config } = usePrepareContractWrite({
-  //   addressOrName: contractAddress,
-  //   contractInterface: contractABI,
-  //   functionName: "payableFunction",
-  //   overrides: {
-  //     value: amount ? parseEther(amount) : undefined,
-  //   },
-  // })
-
-  const { isLoading, isSuccess, isError, writeContract, data } =
-    useContractWrite()
-
   const onSubmit = () => {}
-  // const onWagmi = () => {
-  //   sendTransaction({
-  //     to: sellerAddress,
-  //     value: parseEther("1.0"),
-  //   })
-  // }
-  const onEthers = () => {
-    externalCall({
-      _seller: sellerAddress,
-    })
-  }
-
-  // const onWagmiWrite = () => {
-  //   writeContract({
-  //     address: AppContract.address as `0x${string}`,
-  //     functionName: "createPayment",
-  //     abi: [AppContractAbi],
-  //     args: [sellerAddress],
-  //     value: parseEther("1"),
-  //   })
-  //   console.log("WriteContract")
-  // }
-
-  if (!isLoading) {
-    console.log("WriteContractData:", data)
-  }
-  // const onWagmiWrite = () => {
-  //   writeContract({
-  //     abi: AppContract.abi,
-  //     address: AppContract.address as `0x${string}`,
-  //     functionName: AppContract.fnNames.createPayment,
-  //     args: [sellerAddress],
-  //   })
-  // }
 
   return (
     <motion.div

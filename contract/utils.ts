@@ -1,6 +1,6 @@
 import { BrowserProvider, Contract } from "ethers"
 
-import { AppContract } from "./contract"
+import { AppContract } from "./const"
 
 export async function getUserAddress() {
   if (window.ethereum) {

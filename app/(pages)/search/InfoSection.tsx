@@ -11,6 +11,7 @@ import { HeaderRow } from "./Headrow"
 import { IChatData } from "./chatData"
 
 const sellerAddress = "0x462E5F272B8431562811126779da6EcaE51A5B40"
+
 export default function InfoSection(props: {
   setShowActiveChat: React.Dispatch<React.SetStateAction<boolean>>
   data: IChatData
