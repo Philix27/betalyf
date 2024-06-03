@@ -5,12 +5,14 @@ export type IChatData = {
   department: string
   img: string
   desc: string
+  email: string
 }
 export const chatData: IChatData[] = [
   {
     name: "Dr. Chuks Okolie",
     department: "Peadiatric",
     img: AppImg.secure,
+    email: "philixbob@gmail.com",
     desc: `Dr. Chuks is a dedicated pediatrician with a 
     passion for providing comprehensive healthcare to
     children from infancy through adolescence.
@@ -25,6 +27,7 @@ export const chatData: IChatData[] = [
     name: "Nurs. Lena Hertz",
     department: "Emergency",
     img: AppImg.block,
+    email: "lena@celo.org",
     desc: `Dr. Lena is a dedicated pediatrician with a 
     passion for providing comprehensive healthcare to
     children from infancy through adolescence.
@@ -39,6 +42,7 @@ export const chatData: IChatData[] = [
     name: "Dr. Millie Bobbie",
     department: "Orthopedic",
     img: AppImg.chain,
+    email: "millie@gmail.com",
     desc: `Dr. Millie is a dedicated pediatrician with a 
     passion for providing comprehensive healthcare to
     children from infancy through adolescence.
@@ -53,6 +57,7 @@ export const chatData: IChatData[] = [
     name: "Dr. Raymond Lin",
     department: "Obstetrics",
     img: AppImg.creditCard,
+    email: "raymond@gmail.com",
     desc: `Dr. Chuks is a dedicated pediatrician with a 
     passion for providing comprehensive healthcare to
     children from infancy through adolescence.
@@ -67,6 +72,7 @@ export const chatData: IChatData[] = [
     name: "Pharm. Raymond Lin",
     department: "Pharmacy",
     img: AppImg.creditCard,
+    email: "rayray@gmail.com",
     desc: `Raymond is a knowledgeable and dedicated pharmacist committed to 
     providing exceptional pharmaceutical care and support to the community.
     With extensive expertise in medication management, patient counseling,

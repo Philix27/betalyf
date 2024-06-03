@@ -1,26 +1,23 @@
-"use client";
+"use client"
 
-import React, { useState } from "react";
-import { useRouter } from "next/navigation";
-import { AppInput, AppSelect, Button, Form, TextH } from "@/comps";
-import { transferCusdTokens } from "@/contract";
-import { cn, trpc } from "@/lib";
-import { SCUtils, useMinipay } from "@/sc";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { $Enums } from "@prisma/client";
-import { useForm } from "react-hook-form";
-import { toast } from "sonner";
+import React, { useState } from "react"
+import { useRouter } from "next/navigation"
+import { AppInput, AppSelect, Button, Form, TextH } from "@/comps"
+import { transferCusdTokens } from "@/contract"
+import { cn, trpc } from "@/lib"
+import { SCUtils, useMinipay } from "@/sc"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { $Enums } from "@prisma/client"
+import { useForm } from "react-hook-form"
+import { toast } from "sonner"
 
-
-
-import { IFormSchema, defaultValues, formSchema } from "./schema";
-import styles from "./styles.module.css";
-
+import { IFormSchema, defaultValues, formSchema } from "./schema"
+import styles from "./styles.module.css"
 
 export default function SignUpForm() {
   const router = useRouter()
   const { walletAddress } = useMinipay()
-  
+
   const form = useForm<IFormSchema>({
     resolver: zodResolver(formSchema),
     defaultValues: defaultValues,
@@ -82,7 +79,7 @@ export default function SignUpForm() {
         border-[1px] bg-slate-300/85 py-2
       `}
         >
-          <TextH>Register with us</TextH>
+          <TextH>Tip a Physician</TextH>
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(onSubmit)}
