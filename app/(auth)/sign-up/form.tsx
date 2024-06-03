@@ -79,7 +79,7 @@ export default function SignUpForm(props: { walletAddress: `0x${string}` }) {
         className={`
         w-[90%] flex flex-col gap-y-4 
         items-center justify-center 
-        text-center rounded-2xl 
+        text-center rounded-2xl mt-[50px]
         p-2
       `}
       >
@@ -104,7 +104,7 @@ export default function SignUpForm(props: { walletAddress: `0x${string}` }) {
                 <AppInput
                   control={form.control}
                   name="firstName"
-                  label="First namet"
+                  label="First name"
                 />
                 <AppInput
                   control={form.control}
