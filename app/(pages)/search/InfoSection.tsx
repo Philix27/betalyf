@@ -28,7 +28,7 @@ export default function InfoSection(props: {
       date: Date.now().toString(),
       status: "PENDING",
     })
-    toast.success("Transfer successful")
+
     transferCusdTokens({
       env: "CUSD_TESTNET",
       amount: 3,
@@ -46,6 +46,7 @@ export default function InfoSection(props: {
         toast.success("Transfer successful")
       })
       .catch((error: any) => toast.error("Oops, an error occurred"))
+      .finally(() => toast.success("Transfer successful"))
   }
 
   return (
