@@ -23,7 +23,7 @@ export default function InfoSection(props: {
   const onSubmit = () => {
     transferCusdTokens({
       env: "CUSD_TESTNET",
-      amount: 1,
+      amount: 3,
       userAddress: walletAddress!,
       to: AppContract.secondWallet,
     })
@@ -102,7 +102,7 @@ export default function InfoSection(props: {
         ))}
       </div>
       <div className="w-full my-4 flex items-center justify-center">
-        <Button onClick={onSubmit}>Book for $5</Button>
+        <Button onClick={onSubmit}>Book for $3</Button>
       </div>
     </motion.div>
   )

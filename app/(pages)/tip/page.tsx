@@ -91,12 +91,18 @@ export default function SignUpForm() {
         `}
             >
               <div className={"w-[95%] space-y-4 flex flex-col"}>
-                <AppInput control={form.control} name="drEmail" label="Email" />
+                <AppInput
+                  control={form.control}
+                  name="drEmail"
+                  label="Email"
+                  place="Physician's email"
+                />
                 <AppInput
                   control={form.control}
                   name="amount"
-                  label="Age"
+                  label="Amount"
                   type="no"
+                  place="Amount you wish to send"
                 />
 
                 <Button variant={"default"} type="submit" className="mt-4">

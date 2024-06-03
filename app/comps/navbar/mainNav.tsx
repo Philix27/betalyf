@@ -7,6 +7,7 @@ import { AppStores, NavItem, cn } from "@/lib"
 import { ShoppingCart, User } from "lucide-react"
 
 import { siteConfig } from "./site"
+import { GiMoneyStack, GiPayMoney } from "react-icons/gi"
 
 interface MainNavProps {
   items?: NavItem[]
@@ -52,12 +53,17 @@ export function NavbarHeader({ items }: MainNavProps) {
           <div className="flex items-center ">
             {showIcon() && (
               <Link href="/profile">
-                <User className="h-[1.5rem] w-[1.3rem text-primary-foreground" />
+                <User className="h-[1.5rem] w-[1.3rem] text-primary-foreground" />
               </Link>
             )}
             {pathName === "/pharmacy" && (
               <Link href="/basket">
-                <ShoppingCart className="h-[1.5rem] w-[1.3rem text-primary-foreground ml-3" />
+                <ShoppingCart className="h-[1.5rem] w-[1.3rem] text-primary-foreground ml-3" />
+              </Link>
+            )}
+            {pathName === "/search" && (
+              <Link href="/tip">
+                <GiMoneyStack className="h-[1.5rem] w-[1.3rem] text-primary-foreground ml-3" />
               </Link>
             )}
             {/* <ThemeToggle /> */}
