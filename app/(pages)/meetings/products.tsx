@@ -2,25 +2,23 @@
 
 import React, { useState } from "react"
 import { useRouter } from "next/navigation"
-import { cn } from "@/lib"
+import { AppStores, cn } from "@/lib"
 
-import { Button, TextB, TextH } from "@/app/comps"
+import { IAppointmentStatus } from "@/lib/zustand/appointments"
+import { Button, TextB, TextH } from "@/comps"
 
-import { ISales, dataList } from "./products.data"
 
 export default function ProductsSection() {
   const router = useRouter()
-  const [salesToShow, setSalesToShow] = useState<"ALL" | "BUY" | "SELL">("ALL")
+  const [salesToShow, setSalesToShow] = useState<IAppointmentStatus>("PENDING")
 
-  // const ItemsList = dataList.filter(
-  //   (val, i) => val.vendorSalesStatus === salesToShow
-  // )
+  const state = AppStores.useAppointment()
 
   function getList() {
-    if (salesToShow === "ALL") {
-      return dataList
+    if (salesToShow === "PENDING") {
+      return state.list
     } else {
-      return dataList.filter((val, i) => val.vendorSalesStatus === salesToShow)
+      return state.list.filter((val, i) => val.status === salesToShow)
     }
   }
   return (
@@ -34,19 +32,19 @@ export default function ProductsSection() {
       <div className="flex mb-4 gap-x-2 w-full">
         <Button
           className={"flex-grow bg-blue-600"}
-          onClick={() => setSalesToShow("ALL")}
+          onClick={() => setSalesToShow("PENDING")}
         >
           All
         </Button>
         <Button
-          className={"flex-grow bg-green-600"}
-          onClick={() => setSalesToShow("BUY")}
+          className={"flex-grow bg-pink-600"}
+          onClick={() => setSalesToShow("CANCELLED")}
         >
-          Pending
+          Cancelled
         </Button>
         <Button
-          className={"flex-grow bg-red-600"}
-          onClick={() => setSalesToShow("SELL")}
+          className={"flex-grow bg-green-600"}
+          onClick={() => setSalesToShow("COMPLETED")}
         >
           Completed
         </Button>
@@ -58,7 +56,7 @@ export default function ProductsSection() {
       w-full mx-0
     `}
       >
-        {getList().concat(getList(), getList()).map((item, i) => (
+        {getList().map((item, i) => (
           <div
             className={"md:mx-4 rounded-md bg-card p-3 mb-2"}
             key={i}
@@ -66,7 +64,7 @@ export default function ProductsSection() {
           >
             <div className={"w-full flex flex-col"}>
               <div className="flex items-center justify-between">
-                <TextH v="h3">NGN {item.amount}</TextH>
+                <TextH v="h4">NGN {item.name}</TextH>
                 <TextB className={"text-primary-foreground"}>
                   Price per 1 USDT
                 </TextB>
@@ -74,26 +72,15 @@ export default function ProductsSection() {
               <hr
                 className={cn(
                   "border-4 w-full my-4",
-                  item.vendorSalesStatus === "BUY"
+                  item.status === "PENDING"
                     ? "border-green-600"
                     : "border-red-600"
                 )}
               />
-              <RowText
-                title="Available balance:"
-                subtitle={item.vendorAvailableBalance}
-              />
-              <RowText title="Limit:" subtitle={item.vendorLimit} />
-              <RowText title="Vendor:" subtitle={item.vendorName} />
-              <RowText
-                title="Payment method"
-                subtitle={item.vendorPaymentMethod}
-              />
-              <RowText title="Trades count" subtitle={item.vendorTradesCount} />
-              <RowText
-                title="Trades Percentage"
-                subtitle={item.vendorTradesPercentage}
-              />
+              <RowText title="Available balance:" subtitle={item.status} />
+              <RowText title="Limit:" subtitle={item.date} />
+              <RowText title="Vendor:" subtitle={item.duration} />
+              <RowText title="Payment method" subtitle={item.time} />
             </div>
           </div>
         ))}

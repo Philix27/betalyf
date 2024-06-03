@@ -1,24 +1,28 @@
-"use client"
+"use client";
 
-import React, { useState } from "react"
-import { Button, TextB, TextH } from "@/comps"
-import { AppContract, transferCusdTokens } from "@/contract"
-import { cn } from "@/lib"
-import { useMinipay } from "@/sc"
-import { motion } from "framer-motion"
-import { toast } from "sonner"
+import React, { useState } from "react";
+import { Button, TextB, TextH } from "@/comps";
+import { AppContract, transferCusdTokens } from "@/contract";
+import { AppStores, cn } from "@/lib";
+import { useMinipay } from "@/sc";
+import { motion } from "framer-motion";
+import { toast } from "sonner";
 
-import { HeaderRow } from "./Headrow"
-import { IChatData } from "./chatData"
+
+
+import { HeaderRow } from "./Headrow";
+import { IChatData } from "./chatData";
+
 
 export default function InfoSection(props: {
   setShowActiveChat: React.Dispatch<React.SetStateAction<boolean>>
   data: IChatData
 }) {
   const [selectTime, setSelectTime] = useState("2 - 4am")
-
+  const state = AppStores.useAppointment()
   const { walletAddress } = useMinipay()
-
+  const date = new Date()
+  
   const onSubmit = () => {
     transferCusdTokens({
       env: "CUSD_TESTNET",
@@ -26,7 +30,17 @@ export default function InfoSection(props: {
       userAddress: walletAddress!,
       to: AppContract.secondWallet,
     })
-      .then(() => toast.success("Transfer successful"))
+      .then(() => {
+        state.addToList({
+          name: props.data.name,
+          time: date.getTime().toString(),
+          duration: selectTime,
+          date: date.getDate().toString(),
+          status: "PENDING",
+        })
+        toast.success("Transfer successful")
+
+      })
       .catch((error: any) => toast.error("Oops, an error occurred"))
   }
 

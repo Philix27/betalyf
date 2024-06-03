@@ -1,14 +1,14 @@
 import { create } from "zustand"
 import { createJSONStorage, persist } from "zustand/middleware"
 
-type IAppointmentStatus = "PENDING" | "CANCELLED" | "COMPLETED"
+export type IAppointmentStatus = "PENDING" | "CANCELLED" | "COMPLETED"
 
 type IAppointment = {
   id: number
   name: string
   time: string
-  duration: number
-  date: number
+  duration: string
+  date: string
   status: IAppointmentStatus
 }
 
