@@ -1,17 +1,20 @@
-"use client"
+"use client";
 
-import React, { useState } from "react"
-import { useRouter } from "next/navigation"
-import { AppInput, AppSelect, Button, Form, TextH } from "@/comps"
-import { cn, trpc } from "@/lib"
-import { SCUtils } from "@/sc"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { $Enums } from "@prisma/client"
-import { useForm } from "react-hook-form"
-import { toast } from "sonner"
+import React, { useState } from "react";
+import { useRouter } from "next/navigation";
+import { AppInput, AppSelect, Button, Form, TextH } from "@/comps";
+import { cn, trpc } from "@/lib";
+import { SCUtils } from "@/sc";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { $Enums } from "@prisma/client";
+import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 
-import { IFormSchema, defaultValues, formSchema } from "./schema"
-import styles from "./styles.module.css"
+
+
+import { IFormSchema, defaultValues, formSchema } from "./schema";
+import styles from "./styles.module.css";
+
 
 export default function SignUpForm(props: { walletAddress: `0x${string}` }) {
   const router = useRouter()
@@ -27,13 +30,15 @@ export default function SignUpForm(props: { walletAddress: `0x${string}` }) {
   async function onSubmit(values: IFormSchema) {
     // router.push("/dashboard")
     try {
+     
       const addressExist = await SCUtils.lookupAddress(
         values.email,
         // values.email,
         props.walletAddress
       )
+
       if (!addressExist) {
-        const successfulReg = SCUtils.register(
+        const successfulReg = await SCUtils.register(
           values.email,
           props.walletAddress
         )
