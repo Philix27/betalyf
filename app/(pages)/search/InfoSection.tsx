@@ -2,7 +2,7 @@
 
 import React, { useState } from "react"
 import { AppLoader, AppModal, Button, TextB, TextH } from "@/comps"
-import { AppContract, transferCusdTokens } from "@/contract"
+import { AppContract, ContractFn, transferCusdTokens } from "@/contract"
 import { AppStores, cn, useLoader } from "@/lib"
 import { useMinipay } from "@/sc"
 import { motion } from "framer-motion"
@@ -30,19 +30,24 @@ export default function InfoSection(props: {
       status: "PENDING",
     })
     showLoad()
-    transferCusdTokens({
-      amount: 3,
+    ContractFn.createBooking({
       userAddress: walletAddress!,
-      to: AppContract.secondWallet,
+      drAddress: AppContract.secondWallet,
+      time: 23,
     })
       .then(() => {
-        state.addToList({
-          name: props.data.name,
-          time: date.getTime().toString(),
-          duration: selectTime,
-          date: Date.now().toString(),
-          status: "PENDING",
+        transferCusdTokens({
+          amount: 3,
+          userAddress: walletAddress!,
+          to: AppContract.secondWallet,
         })
+        // state.addToList({
+        //   name: props.data.name,
+        //   time: date.getTime().toString(),
+        //   duration: selectTime,
+        //   date: Date.now().toString(),
+        //   status: "PENDING",
+        // })
         toast.success("Transfer successful")
       })
       .catch((error: any) => {

@@ -2,7 +2,7 @@
 
 import React from "react"
 import { AppLoader, AppModal, Button, TextB, TextH } from "@/comps"
-import { AppContract, transferCusdTokens } from "@/contract"
+import { AppContract, ContractFn, transferCusdTokens } from "@/contract"
 import { AppStores, useLoader } from "@/lib"
 import { useMinipay } from "@/sc"
 import { IoClose } from "react-icons/io5"
@@ -21,13 +21,19 @@ export default function BasketPage() {
 
   const onSubmit = () => {
     showLoad()
-    transferCusdTokens({
+    // todo: First send to database then store retrieve id of order
+    ContractFn.addOrder({
       userAddress: walletAddress!,
-      to: AppContract.secondWallet,
-      amount: sumTotal() / 1500,
+      orderId: Date.now().toString(),
+      amountPaid: sumTotal(),
     })
-      .then(() => {
+      .then(async () => {
         state.clearCart()
+        // await transferCusdTokens({
+        //   userAddress: walletAddress!,
+        //   to: AppContract.secondWallet,
+        //   amount: sumTotal() / 1500,
+        // })
         toast.success("Order placed")
       })
       .catch((e) => {

@@ -1,8 +1,9 @@
-import { geAppContract } from "../utils"
+import { geAppContract } from "../utils";
+
 
 export async function createBooking(props: {
   userAddress: string
-  drAddress: `0x${string}`
+  drAddress: string
   time: number
 }) {
   const contract = await geAppContract(props.userAddress)

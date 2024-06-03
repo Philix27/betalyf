@@ -3,7 +3,7 @@ import { geAppContract } from "../utils"
 export async function addOrder(props: {
   userAddress: string
   orderId: string
-  amountPaid: `0x${string}` | undefined
+  amountPaid: number
 }) {
   const contract = await geAppContract(props.userAddress)
 
