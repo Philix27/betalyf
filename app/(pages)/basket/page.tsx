@@ -19,13 +19,37 @@ export default function BasketPage() {
     }, 0)
   }
 
+  const onSubmit = () => {
+    showLoad()
+    transferCusdTokens({
+      env: "CUSD_TESTNET",
+      userAddress: walletAddress!,
+      to: AppContract.secondWallet,
+      amount: sumTotal() / 1500,
+    })
+      .then(() => {
+        state.clearCart()
+        toast.success("Order placed")
+      })
+      .catch((e) => {
+        toast.error("Oops an error occurred")
+      })
+      .finally(() => {
+        hideLoad()
+      })
+  }
+
   return (
     <div className="px-4 py-2">
-      <TextH>Shopping basket</TextH>
-      {loadState}
-      <AppModal>
-        <AppLoader />
-      </AppModal>
+      {loadState && (
+        <AppModal>
+          <AppLoader />
+        </AppModal>
+      )}
+      <div className={"flex items-center justify-center"}>
+        <TextH>Shopping basket</TextH>
+      </div>
+
       {state.cart.map((val, i) => (
         <div
           key={i}
@@ -70,23 +94,7 @@ export default function BasketPage() {
       ))}
       <div className="flex flex-col items-center justify-center my-4">
         <TextH v="h2">₦ {sumTotal()}</TextH>
-        <Button
-          className="my-4"
-          onClick={() => {
-            showLoad()
-            // transferCusdTokens({
-            //   env: "CUSD_TESTNET",
-            //   userAddress: walletAddress!,
-            //   to: AppContract.secondWallet,
-            //   amount: sumTotal() / 1500,
-            // })
-            setTimeout(() => {
-              state.clearCart()
-              hideLoad()
-              toast.success("Order placed")
-            }, 5000)
-          }}
-        >
+        <Button className="my-4" onClick={onSubmit}>
           Place order
         </Button>
       </div>

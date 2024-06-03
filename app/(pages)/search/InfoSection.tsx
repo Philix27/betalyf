@@ -1,9 +1,9 @@
 "use client"
 
 import React, { useState } from "react"
-import { Button, TextB, TextH } from "@/comps"
+import { AppLoader, AppModal, Button, TextB, TextH } from "@/comps"
 import { AppContract, transferCusdTokens } from "@/contract"
-import { AppStores, cn } from "@/lib"
+import { AppStores, cn, useLoader } from "@/lib"
 import { useMinipay } from "@/sc"
 import { motion } from "framer-motion"
 import { toast } from "sonner"
@@ -18,6 +18,7 @@ export default function InfoSection(props: {
   const [selectTime, setSelectTime] = useState("2 - 4am")
   const state = AppStores.useAppointment()
   const { walletAddress } = useMinipay()
+  const { loadState, showLoad, hideLoad } = useLoader()
   const date = new Date()
 
   const onSubmit = () => {
@@ -28,7 +29,7 @@ export default function InfoSection(props: {
       date: Date.now().toString(),
       status: "PENDING",
     })
-
+    showLoad()
     transferCusdTokens({
       env: "CUSD_TESTNET",
       amount: 3,
@@ -45,8 +46,13 @@ export default function InfoSection(props: {
         })
         toast.success("Transfer successful")
       })
-      .catch((error: any) => toast.error("Oops, an error occurred"))
-      .finally(() => toast.success("Transfer successful"))
+      .catch((error: any) => {
+        toast.error("Oops, an error occurred")
+      })
+      .finally(() => {
+        hideLoad()
+        toast.success("Transfer successful")
+      })
   }
 
   return (
@@ -62,6 +68,11 @@ export default function InfoSection(props: {
         data={props.data}
         setShowActiveChat={props.setShowActiveChat}
       />
+      {loadState && (
+        <AppModal>
+          <AppLoader />
+        </AppModal>
+      )}
 
       <div className="w-full">
         <div className="flex flex-col items-center justify-center mt-[30px] mb-[10px]">

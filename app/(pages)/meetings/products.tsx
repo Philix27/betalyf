@@ -38,16 +38,16 @@ export default function ProductsSection() {
     >
       <div className="flex mb-4 gap-x-2 w-full">
         <Button
-          className={"flex-grow bg-blue-600"}
+          className={"flex-grow bg-amber-500"}
           onClick={() => setSalesToShow("PENDING")}
         >
-          All
+          Pending
         </Button>
         <Button
           className={"flex-grow bg-pink-600"}
           onClick={() => setSalesToShow("CANCELLED")}
         >
-          Cancelled
+          Canceled
         </Button>
         <Button
           className={"flex-grow bg-green-600"}
@@ -76,9 +76,9 @@ export default function ProductsSection() {
               <hr
                 className={cn(
                   "border-4 w-full my-4",
-                  item.status === "PENDING"
-                    ? "border-green-600"
-                    : "border-red-600"
+                  item.status === "PENDING" && "border-amber-500",
+                  item.status === "COMPLETED" && "border-green-600",
+                  item.status === "CANCELLED" && "border-pink-600",
                 )}
               />
               <RowText title="Status:" subtitle={item.status} />

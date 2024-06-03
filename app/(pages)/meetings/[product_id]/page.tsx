@@ -21,7 +21,7 @@ export default function ProductsDetailsPage() {
             <div className="mt-8 border-b-[1px] border-secondary pb-2">
               <TextH v="h3">Name of Item</TextH>
               <TextB>
-                Subtitle, SubtitleSubtitleSubtitleSubtitleSubtitleSubtitle
+                Subtitle, 
               </TextB>
             </div>
             <div className="mb-5">

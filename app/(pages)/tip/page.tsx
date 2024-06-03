@@ -1,25 +1,22 @@
-"use client";
+"use client"
 
-import React, { useState } from "react";
-import { useRouter } from "next/navigation";
-import { AppInput, AppSelect, Button, Form, TextH } from "@/comps";
-import { transferCusdTokens } from "@/contract";
-import { cn, trpc } from "@/lib";
-import { SCUtils, useMinipay } from "@/sc";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { $Enums } from "@prisma/client";
-import { useForm } from "react-hook-form";
-import { toast } from "sonner";
+import React from "react"
+import { useRouter } from "next/navigation"
+import { AppInput, AppLoader, AppModal, Button, Form, TextH } from "@/comps"
+import { transferCusdTokens } from "@/contract"
+import { cn, trpc, useLoader } from "@/lib"
+import { SCUtils, useMinipay } from "@/sc"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { useForm } from "react-hook-form"
+import { toast } from "sonner"
 
-
-
-import { IFormSchema, defaultValues, formSchema } from "./schema";
-import styles from "./styles.module.css";
-
+import { IFormSchema, defaultValues, formSchema } from "./schema"
+import styles from "./styles.module.css"
 
 export default function SignUpForm() {
   const router = useRouter()
   const { walletAddress } = useMinipay()
+  const { loadState, showLoad, hideLoad } = useLoader()
 
   const form = useForm<IFormSchema>({
     resolver: zodResolver(formSchema),
@@ -63,6 +60,11 @@ export default function SignUpForm() {
         styles.container
       )}
     >
+       {loadState && (
+        <AppModal>
+          <AppLoader />
+        </AppModal>
+      )}
       <div
         className={`
         w-[90%] flex flex-col gap-y-4 
