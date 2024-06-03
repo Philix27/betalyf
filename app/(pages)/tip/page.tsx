@@ -1,18 +1,21 @@
-"use client"
+"use client";
 
-import React, { useState } from "react"
-import { useRouter } from "next/navigation"
-import { AppInput, AppSelect, Button, Form, TextH } from "@/comps"
-import { transferCusdTokens } from "@/contract"
-import { cn, trpc } from "@/lib"
-import { SCUtils, useMinipay } from "@/sc"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { $Enums } from "@prisma/client"
-import { useForm } from "react-hook-form"
-import { toast } from "sonner"
+import React, { useState } from "react";
+import { useRouter } from "next/navigation";
+import { AppInput, AppSelect, Button, Form, TextH } from "@/comps";
+import { transferCusdTokens } from "@/contract";
+import { cn, trpc } from "@/lib";
+import { SCUtils, useMinipay } from "@/sc";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { $Enums } from "@prisma/client";
+import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 
-import { IFormSchema, defaultValues, formSchema } from "./schema"
-import styles from "./styles.module.css"
+
+
+import { IFormSchema, defaultValues, formSchema } from "./schema";
+import styles from "./styles.module.css";
+
 
 export default function SignUpForm() {
   const router = useRouter()
@@ -38,17 +41,12 @@ export default function SignUpForm() {
           env: "CUSD_TESTNET",
           userAddress: walletAddress!,
           to: lookupAddress,
-          amount: values.amount,
+          amount: parseInt(values.amount),
         })
-        const successfulReg = SCUtils.getAddress(values.drEmail, walletAddress)
         toast.success("Registered on social connect!")
       } else {
         toast.error("Physician not registered")
       }
-
-      toast.success("Account created!")
-
-      router.push("/dashboard")
     } catch (error) {
       toast.error("oops an error occured")
       console.log("SignUp Error", error)

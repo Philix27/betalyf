@@ -2,12 +2,12 @@ import { z } from "zod"
 
 export const formSchema = z.object({
   drEmail: z.string(),
-  amount: z.number(),
+  amount: z.string(),
 })
 
 export const defaultValues: z.infer<typeof formSchema> = {
   drEmail: "",
-  amount: 0,
+  amount: "",
 }
 
 export type IFormSchema = z.infer<typeof formSchema>
