@@ -1,5 +1,6 @@
 import { parseEther } from "viem"
-import { geAppContract } from "./utils"
+
+import { geAppContract } from "../utils"
 
 export const testCall = async (props: {
   userAddress: string
@@ -20,4 +21,3 @@ export const testCall = async (props: {
     console.log("An error occurred", error)
   }
 }
-

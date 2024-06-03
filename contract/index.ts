@@ -1,3 +1,3 @@
 export * from "./functions"
-export * from "./contract"
+export * from "./fn"
 export * from "./const"
