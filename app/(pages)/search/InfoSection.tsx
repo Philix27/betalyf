@@ -31,7 +31,6 @@ export default function InfoSection(props: {
     })
     showLoad()
     transferCusdTokens({
-      env: "CUSD_TESTNET",
       amount: 3,
       userAddress: walletAddress!,
       to: AppContract.secondWallet,

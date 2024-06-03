@@ -22,7 +22,6 @@ export default function BasketPage() {
   const onSubmit = () => {
     showLoad()
     transferCusdTokens({
-      env: "CUSD_TESTNET",
       userAddress: walletAddress!,
       to: AppContract.secondWallet,
       amount: sumTotal() / 1500,

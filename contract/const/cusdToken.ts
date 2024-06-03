@@ -1,3 +1,4 @@
+import { isTestnet } from "@/lib"
 import { BrowserProvider, ethers } from "ethers"
 
 export type ITokenType =
@@ -22,16 +23,19 @@ const erc20Abi = [
 ]
 
 export async function transferCusdTokens(props: {
-  env: ITokenType
   userAddress: `0x${string}`
   to: string
   amount: number
 }) {
-  const { env, userAddress, to, amount } = props
+  const { userAddress, to, amount } = props
   const provider = new BrowserProvider(window.ethereum)
   const signer = await provider.getSigner(userAddress)
 
-  const tokenContract = new ethers.Contract(TokenAddress[env], erc20Abi, signer)
+  const tokenContract = new ethers.Contract(
+    isTestnet ? TokenAddress["CUSD_TESTNET"] : TokenAddress["CUSD_MAINNET"],
+    erc20Abi,
+    signer
+  )
 
   const recipient = to
   const tokenAmount = ethers.parseUnits(amount.toString(), 18) // Assuming the token has 18 decimals

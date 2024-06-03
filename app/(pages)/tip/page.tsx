@@ -35,7 +35,6 @@ export default function SignUpForm() {
       if (lookupAddress) {
         // todo: verify if email if for a physician
         transferCusdTokens({
-          env: "CUSD_TESTNET",
           userAddress: walletAddress!,
           to: lookupAddress,
           amount: parseInt(values.amount),
@@ -60,7 +59,7 @@ export default function SignUpForm() {
         styles.container
       )}
     >
-       {loadState && (
+      {loadState && (
         <AppModal>
           <AppLoader />
         </AppModal>
