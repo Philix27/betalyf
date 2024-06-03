@@ -19,7 +19,7 @@ export const _dataList: IChatData[] = [
   {
     name: "Millie Bobbie",
     lastSeen: "16 May, 2024",
-    img: AppImg.green.homes,
+    img: AppImg.person,
   },
   {
     name: "Raymond Lin",

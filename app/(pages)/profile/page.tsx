@@ -1,3 +1,4 @@
+"use client"
 import React from "react"
 import { TextB, TextH } from "@/comps"
 import { AppImg, cn } from "@/lib"
