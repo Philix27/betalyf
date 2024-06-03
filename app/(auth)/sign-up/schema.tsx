@@ -3,6 +3,7 @@ import { z } from "zod"
 export const formSchema = z.object({
   // To
   email: z.string(),
+  phone: z.string(),
   firstName: z.string(),
   lastName: z.string(),
   allergies: z.string(),
@@ -12,6 +13,7 @@ export const formSchema = z.object({
 
 export const defaultValues: z.infer<typeof formSchema> = {
   email: "",
+  phone: "",
   firstName: "",
   lastName: "",
   allergies: "",

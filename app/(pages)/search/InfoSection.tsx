@@ -64,7 +64,7 @@ export default function InfoSection(props: {
         <div className="flex flex-col items-center justify-center space-y-2">
           <TextH>{props.data.name}</TextH>
           <TextH v="h5" className={"text-primary"}>
-            {props.data.email}
+            {props.data.phone}
           </TextH>
           <TextB>DEPARTMENT: {props.data.department}</TextB>
           <TextB className={"text-center  max-w-[80%]"}>

@@ -1,4 +1,8 @@
-import { AppImg } from "@/lib"
+import { AppImg } from "@/lib";
+
+
+
+
 
 export type IChatData = {
   name: string
@@ -6,6 +10,7 @@ export type IChatData = {
   img: string
   desc: string
   email: string
+  phone: string
 }
 export const chatData: IChatData[] = [
   {
@@ -13,6 +18,7 @@ export const chatData: IChatData[] = [
     department: "Peadiatric",
     img: AppImg.secure,
     email: "philixbob@gmail.com",
+    phone: "23408108850572",
     desc: `Dr. Chuks is a dedicated pediatrician with a 
     passion for providing comprehensive healthcare to
     children from infancy through adolescence.
@@ -28,6 +34,7 @@ export const chatData: IChatData[] = [
     department: "Emergency",
     img: AppImg.block,
     email: "lena@celo.org",
+    phone: "23408108850573",
     desc: `Dr. Lena is a dedicated pediatrician with a 
     passion for providing comprehensive healthcare to
     children from infancy through adolescence.
@@ -43,6 +50,7 @@ export const chatData: IChatData[] = [
     department: "Orthopedic",
     img: AppImg.chain,
     email: "millie@gmail.com",
+    phone: "23408108850574",
     desc: `Dr. Millie is a dedicated pediatrician with a 
     passion for providing comprehensive healthcare to
     children from infancy through adolescence.
@@ -58,6 +66,7 @@ export const chatData: IChatData[] = [
     department: "Obstetrics",
     img: AppImg.creditCard,
     email: "raymond@gmail.com",
+    phone: "23408108850575",
     desc: `Dr. Chuks is a dedicated pediatrician with a 
     passion for providing comprehensive healthcare to
     children from infancy through adolescence.
@@ -73,6 +82,7 @@ export const chatData: IChatData[] = [
     department: "Pharmacy",
     img: AppImg.creditCard,
     email: "rayray@gmail.com",
+    phone: "23408108850576",
     desc: `Raymond is a knowledgeable and dedicated pharmacist committed to 
     providing exceptional pharmaceutical care and support to the community.
     With extensive expertise in medication management, patient counseling,

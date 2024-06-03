@@ -1,20 +1,17 @@
-"use client";
+"use client"
 
-import React, { useState } from "react";
-import { useRouter } from "next/navigation";
-import { AppInput, AppSelect, Button, Form, TextH } from "@/comps";
-import { cn, trpc } from "@/lib";
-import { SCUtils } from "@/sc";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { $Enums } from "@prisma/client";
-import { useForm } from "react-hook-form";
-import { toast } from "sonner";
+import React, { useState } from "react"
+import { useRouter } from "next/navigation"
+import { AppInput, AppSelect, Button, Form, TextH } from "@/comps"
+import { cn, trpc } from "@/lib"
+import { SCUtils } from "@/sc"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { $Enums } from "@prisma/client"
+import { useForm } from "react-hook-form"
+import { toast } from "sonner"
 
-
-
-import { IFormSchema, defaultValues, formSchema } from "./schema";
-import styles from "./styles.module.css";
-
+import { IFormSchema, defaultValues, formSchema } from "./schema"
+import styles from "./styles.module.css"
 
 export default function SignUpForm(props: { walletAddress: `0x${string}` }) {
   const router = useRouter()
@@ -30,35 +27,29 @@ export default function SignUpForm(props: { walletAddress: `0x${string}` }) {
   async function onSubmit(values: IFormSchema) {
     // router.push("/dashboard")
     try {
-     
       const addressExist = await SCUtils.lookupAddress(
-        values.email,
-        // values.email,
+        values.phone,
         props.walletAddress
       )
-
-      if (!addressExist) {
-        const successfulReg = await SCUtils.register(
-          values.email,
-          props.walletAddress
-        )
+      console.log("addressExist:", addressExist)
+      if (addressExist) {
+        // await t.mutateAsync({
+        //   email: values.email,
+        //   firstName: values.firstName,
+        //   lastName: values.lastName,
+        //   allergies: values.allergies,
+        //   isMale: IsMale,
+        //   age: parseInt(values.age),
+        //   walletAddress: "",
+        //   isClinician: IsClinician,
+        //   department: category,
+        // })
+        toast.success("Account created!")
+        router.push("/dashboard")
+      } else {
+        await SCUtils.register(values.email, props.walletAddress)
         toast.success("Registered on social connect!")
       }
-      // await t.mutateAsync({
-      //   email: values.email,
-      //   firstName: values.firstName,
-      //   lastName: values.lastName,
-      //   allergies: values.allergies,
-      //   isMale: IsMale,
-      //   age: parseInt(values.age),
-      //   walletAddress: "",
-      //   isClinician: IsClinician,
-      //   department: category,
-      // })
-
-      toast.success("Account created!")
-
-      router.push("/dashboard")
     } catch (error) {
       toast.error("oops an error occured")
       console.log("SignUp Error", error)
@@ -112,6 +103,7 @@ export default function SignUpForm(props: { walletAddress: `0x${string}` }) {
                   label="Last name"
                 />
                 <AppInput control={form.control} name="email" label="Email" />
+                <AppInput control={form.control} name="phone" label="Phone" />
                 <AppInput
                   control={form.control}
                   name="age"
