@@ -46,7 +46,7 @@ export default function InfoSection(props: {
       animate={{ x: 0, opacity: 1 }}
       transition={{ ease: "easeInOut", duration: 0.5 }}
       className={`
-        fixed top-0 bottom-0 left-0 h-[100vh] bg-background w-full mt-[50px] z-10
+        fixed top-0 bottom-0 left-0 min-h-[100vh] bg-background w-full mt-[50px] z-10
     `}
     >
       <HeaderRow
@@ -55,13 +55,13 @@ export default function InfoSection(props: {
       />
 
       <div className="w-full">
-        <div className="flex flex-col items-center justify-center mt-[30px] mb-[20px]">
+        <div className="flex flex-col items-center justify-center mt-[30px] mb-[10px]">
           <img
             src={props.data.img}
             className="h-[100px] w-[100px] rounded-[50px]"
           />
         </div>
-        <div className="flex flex-col items-center justify-center space-y-4">
+        <div className="flex flex-col items-center justify-center space-y-2">
           <TextH>{props.data.name}</TextH>
           <TextH v="h5" className={"text-primary"}>
             {props.data.email}
