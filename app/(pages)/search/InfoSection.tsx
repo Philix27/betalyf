@@ -32,7 +32,7 @@ export default function InfoSection(props: {
           name: props.data.name,
           time: date.getTime().toString(),
           duration: selectTime,
-          date: date.getDate().toString(),
+          date: Date.now().toString(),
           status: "PENDING",
         })
         toast.success("Transfer successful")
@@ -63,7 +63,9 @@ export default function InfoSection(props: {
         </div>
         <div className="flex flex-col items-center justify-center space-y-4">
           <TextH>{props.data.name}</TextH>
-          <TextH>{props.data.email}</TextH>
+          <TextH v="h5" className={"text-primary"}>
+            {props.data.email}
+          </TextH>
           <TextB>DEPARTMENT: {props.data.department}</TextB>
           <TextB className={"text-center  max-w-[80%]"}>
             {props.data.desc}

@@ -2,17 +2,24 @@
 
 import React, { useState } from "react"
 import { useRouter } from "next/navigation"
+import { Button, TextB, TextH } from "@/comps"
 import { AppStores, cn } from "@/lib"
 
 import { IAppointmentStatus } from "@/lib/zustand/appointments"
-import { Button, TextB, TextH } from "@/comps"
-
 
 export default function ProductsSection() {
   const router = useRouter()
   const [salesToShow, setSalesToShow] = useState<IAppointmentStatus>("PENDING")
 
   const state = AppStores.useAppointment()
+
+  const getDate = (dateI: number) => {
+    const date = new Date(dateI)
+
+    const readableDate = date.toLocaleDateString("en-US", {})
+
+    return readableDate
+  }
 
   function getList() {
     if (salesToShow === "PENDING") {
@@ -60,14 +67,11 @@ export default function ProductsSection() {
           <div
             className={"md:mx-4 rounded-md bg-card p-3 mb-2"}
             key={i}
-            onClick={() => router.push(`/products/${i}`)}
+            // onClick={() => router.push(`/products/${i}`)}
           >
             <div className={"w-full flex flex-col"}>
               <div className="flex items-center justify-between">
-                <TextH v="h4">NGN {item.name}</TextH>
-                <TextB className={"text-primary-foreground"}>
-                  Price per 1 USDT
-                </TextB>
+                <TextH v="h4">{item.name}</TextH>
               </div>
               <hr
                 className={cn(
@@ -77,10 +81,10 @@ export default function ProductsSection() {
                     : "border-red-600"
                 )}
               />
-              <RowText title="Available balance:" subtitle={item.status} />
-              <RowText title="Limit:" subtitle={item.date} />
-              <RowText title="Vendor:" subtitle={item.duration} />
-              <RowText title="Payment method" subtitle={item.time} />
+              <RowText title="Status:" subtitle={item.status} />
+              <RowText title="Date:" subtitle={getDate(parseInt(item.date))} />
+              <RowText title="Duration:" subtitle={item.duration} />
+              {/* <RowText title="Time" subtitle={item.time} /> */}
             </div>
           </div>
         ))}
