@@ -1,18 +1,15 @@
-"use client";
+"use client"
 
-import React, { useState } from "react";
-import { Button, TextB, TextH } from "@/comps";
-import { AppContract, transferCusdTokens } from "@/contract";
-import { AppStores, cn } from "@/lib";
-import { useMinipay } from "@/sc";
-import { motion } from "framer-motion";
-import { toast } from "sonner";
+import React, { useState } from "react"
+import { Button, TextB, TextH } from "@/comps"
+import { AppContract, transferCusdTokens } from "@/contract"
+import { AppStores, cn } from "@/lib"
+import { useMinipay } from "@/sc"
+import { motion } from "framer-motion"
+import { toast } from "sonner"
 
-
-
-import { HeaderRow } from "./Headrow";
-import { IChatData } from "./chatData";
-
+import { HeaderRow } from "./Headrow"
+import { IChatData } from "./chatData"
 
 export default function InfoSection(props: {
   setShowActiveChat: React.Dispatch<React.SetStateAction<boolean>>
@@ -22,7 +19,7 @@ export default function InfoSection(props: {
   const state = AppStores.useAppointment()
   const { walletAddress } = useMinipay()
   const date = new Date()
-  
+
   const onSubmit = () => {
     transferCusdTokens({
       env: "CUSD_TESTNET",
@@ -39,7 +36,6 @@ export default function InfoSection(props: {
           status: "PENDING",
         })
         toast.success("Transfer successful")
-
       })
       .catch((error: any) => toast.error("Oops, an error occurred"))
   }

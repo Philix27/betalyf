@@ -51,6 +51,31 @@ export class SCUtils {
     return false
   }
 
+  static async getAddress(
+    identifier: string,
+    walletClient: any
+  ): Promise<string | undefined> {
+    if (walletClient) {
+      let response: Response = await fetch(
+        `/api/socialconnect/lookup?${new URLSearchParams({
+          handle: identifier,
+          identifierType: SCUtils.getIdentifierPrefix(),
+        })}`,
+        {
+          method: "GET",
+        }
+      )
+
+      let lookupResponse: LookupResponse = await response.json()
+      if (lookupResponse.accounts.length > 0) {
+        // return !!lookupResponse.accounts[0]
+        return lookupResponse.accounts[0]
+      }
+      return undefined
+    }
+    return undefined
+  }
+
   /**
    * Registers the given identifier for the current wallet client by making a POST request
    * to the "/api/socialconnect/register" endpoint with the account address, identifier, and

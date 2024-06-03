@@ -28,7 +28,7 @@ export default function SignUpForm(props: { walletAddress: `0x${string}` }) {
     // router.push("/dashboard")
     try {
       const addressExist = await SCUtils.lookupAddress(
-        "2348108850572",
+        values.email,
         // values.email,
         props.walletAddress
       )

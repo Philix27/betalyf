@@ -4,7 +4,6 @@ import React from "react"
 import { useMinipay } from "@/sc"
 import { ConnectButton } from "@rainbow-me/rainbowkit"
 
-
 import SignUpForm from "./form"
 
 export default function SignUpPage() {
