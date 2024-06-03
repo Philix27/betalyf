@@ -1,11 +1,13 @@
-import React, { useState } from "react"
+"use client"
+
+import { useState } from "react"
 
 export function useLoader() {
-  const [loaderState, setShow] = useState<boolean>(false)
+  const [loadState, setShow] = useState<boolean>(false)
 
-  const showLoader = () => setShow(true)
-  const hideLoader = () => setShow(true)
+  const showLoad = () => setShow(true)
+  const hideLoad = () => setShow(false)
   const toggleLoader = () => setShow((prev) => !prev)
 
-  return { showLoader, toggleLoader, hideLoader, loaderState }
+  return { showLoad, toggleLoader, hideLoad, loadState }
 }

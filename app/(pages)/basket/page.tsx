@@ -1,20 +1,17 @@
-"use client";
+"use client"
 
-import React from "react";
-import { Button, TextB, TextH } from "@/comps";
-import { AppContract, transferCusdTokens } from "@/contract";
-import { AppStores } from "@/lib";
-import { useMinipay } from "@/sc";
-import { IoClose } from "react-icons/io5";
-import { toast } from "sonner";
-
-
-
-
+import React from "react"
+import { AppLoader, AppModal, Button, TextB, TextH } from "@/comps"
+import { AppContract, transferCusdTokens } from "@/contract"
+import { AppStores, useLoader } from "@/lib"
+import { useMinipay } from "@/sc"
+import { IoClose } from "react-icons/io5"
+import { toast } from "sonner"
 
 export default function BasketPage() {
   const state = AppStores.useProductStore()
   const { walletAddress } = useMinipay()
+  const { loadState, showLoad, hideLoad } = useLoader()
 
   function sumTotal(): number {
     return state.cart.reduce((accumulator, drug) => {
@@ -25,6 +22,10 @@ export default function BasketPage() {
   return (
     <div className="px-4 py-2">
       <TextH>Shopping basket</TextH>
+      {loadState}
+      <AppModal>
+        <AppLoader />
+      </AppModal>
       {state.cart.map((val, i) => (
         <div
           key={i}
@@ -72,14 +73,18 @@ export default function BasketPage() {
         <Button
           className="my-4"
           onClick={() => {
-            transferCusdTokens({
-              env: "CUSD_TESTNET",
-              userAddress: walletAddress!,
-              to: AppContract.secondWallet,
-              amount: sumTotal() / 1500,
-            })
-            state.clearCart();
-            toast.success("Order placed")
+            showLoad()
+            // transferCusdTokens({
+            //   env: "CUSD_TESTNET",
+            //   userAddress: walletAddress!,
+            //   to: AppContract.secondWallet,
+            //   amount: sumTotal() / 1500,
+            // })
+            setTimeout(() => {
+              state.clearCart()
+              hideLoad()
+              toast.success("Order placed")
+            }, 5000)
           }}
         >
           Place order
