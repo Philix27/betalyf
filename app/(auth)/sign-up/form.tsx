@@ -69,7 +69,7 @@ export default function SignUpForm(props: { walletAddress: `0x${string}` }) {
     <div
       className={cn(
         `
-    w-full h-[calc(100vh-50px)] 
+    w-full min-h-[calc(100vh-50px)] 
       flex flex-col items-center justify-center
     `,
         styles.container
