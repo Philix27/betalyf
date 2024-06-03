@@ -44,9 +44,9 @@ export default function DetailsSection(props: {
             ₦{props.data.price}
           </TextB>
           <TextB>category: {props.data.department}</TextB>
-          <TextB className={"text-center  max-w-[80%]"}>
+          {/* <TextB className={"text-center  max-w-[80%]"}>
             {props.data.desc}
-          </TextB>
+          </TextB> */}
         </div>
       </div>
 

@@ -1,11 +1,16 @@
-"use client"
+"use client";
 
-import React from "react"
-import { Button, TextB, TextH } from "@/comps"
-import { AppContract, transferCusdTokens } from "@/contract"
-import { AppStores } from "@/lib"
-import { useMinipay } from "@/sc"
-import { IoClose } from "react-icons/io5"
+import React from "react";
+import { Button, TextB, TextH } from "@/comps";
+import { AppContract, transferCusdTokens } from "@/contract";
+import { AppStores } from "@/lib";
+import { useMinipay } from "@/sc";
+import { IoClose } from "react-icons/io5";
+import { toast } from "sonner";
+
+
+
+
 
 export default function BasketPage() {
   const state = AppStores.useProductStore()
@@ -71,8 +76,10 @@ export default function BasketPage() {
               env: "CUSD_TESTNET",
               userAddress: walletAddress!,
               to: AppContract.secondWallet,
-              amount: 3,
+              amount: sumTotal() / 1500,
             })
+            state.clearCart();
+            toast.success("Order placed")
           }}
         >
           Place order

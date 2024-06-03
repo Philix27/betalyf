@@ -21,6 +21,14 @@ export default function InfoSection(props: {
   const date = new Date()
 
   const onSubmit = () => {
+    state.addToList({
+      name: props.data.name,
+      time: date.getTime().toString(),
+      duration: selectTime,
+      date: Date.now().toString(),
+      status: "PENDING",
+    })
+    toast.success("Transfer successful")
     transferCusdTokens({
       env: "CUSD_TESTNET",
       amount: 3,
