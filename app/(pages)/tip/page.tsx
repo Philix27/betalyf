@@ -31,7 +31,7 @@ export default function SignUpForm() {
     // router.push("/dashboard")
     try {
       const lookupAddress = await SCUtils.getAddress(
-        values.drEmail,
+        values.phone,
         walletAddress
       )
 
@@ -91,9 +91,9 @@ export default function SignUpForm() {
               <div className={"w-[95%] space-y-4 flex flex-col"}>
                 <AppInput
                   control={form.control}
-                  name="drEmail"
-                  label="Email"
-                  place="Physician's email"
+                  name="phone"
+                  label="Phone"
+                  place="Physician's phone number"
                 />
                 <AppInput
                   control={form.control}
