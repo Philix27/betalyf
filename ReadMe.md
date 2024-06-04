@@ -2,15 +2,22 @@
 
 This project is for the Build With Celo 6, [Minipay Hackathon](https://build-with-celo-6.hackerearth.com/)
 
-![image](./assets/landing.jpg)
+<!-- ![image](./assets/landing.jpg) -->
+<!-- https://youtu.be/oDCC7BvNqdI -->
+[![banner](./assets/landing.jpg)](https://youtu.be/oDCC7BvNqdI)
 
 ## Short Description
 
-Introducing BetaLyf: Seamless healthcare at your fingertips! Access online consultations and purchase vital medical products from home. Experience the future of healthcare with BetaLyf. Your well-being, our priority. 
-
+Introducing BetaLyf, your gateway to seamless healthcare at your fingertips. Imagine a world where online consultations are just a tap away, connecting you to top medical professionals from the comfort of your home. With BetaLyf, you can also easily purchase vital medical products, from essential multivitamins to specialized tools for managing conditions like hypertension and diabetes. Experience the future of healthcare with BetaLyf, where your well-being is our priority.
 ## Description
 
-Introducing BetaLyf, your gateway to seamless healthcare at your fingertips. Imagine a world where online consultations are just a tap away, connecting you to top medical professionals from the comfort of your home. With BetaLyf, you can also easily purchase vital medical products, from essential multivitamins to specialized tools for managing conditions like hypertension and diabetes. Experience the future of healthcare with BetaLyf, where your well-being is our priority.
+
+BetaLyf is an app for that aims to simplify healthcare by making it more accessible to the public. 
+#### Problems
+Most people who would wish to see a doctor often don't want to go to the hospital while others keep trying to find a perfect time, but all of these can be solved if health professionals across different time zones can be booked and accessed online. 
+
+#### Solution
+BetaLyf brings the solution of matching patient's with various healthcare professionals as well as make provision for the purchase of drugs from nearby pharmacies which would be registered on the platform.
 
 ## Problem
 
@@ -97,6 +104,6 @@ using Minipay - Opera mini
 - [Hackathon link](https://build-with-celo-6.hackerearth.com/)
 - [Github link](https://github.com/Philix27/betalyf)
 - [Vercel link](https://betalyf.vercel.app/)
-- [Video link](https://peerie.vercel.app/)
+- [Video link](https://youtu.be/oDCC7BvNqdI)
 
 
