@@ -1,8 +1,4 @@
-import { AppImg } from "@/lib";
-
-
-
-
+import { AppImg } from "@/lib"
 
 export type IChatData = {
   name: string
@@ -16,7 +12,7 @@ export const chatData: IChatData[] = [
   {
     name: "Dr. Chuks Okolie",
     department: "Peadiatric",
-    img: AppImg.secure,
+    img: AppImg.profile.blackDude,
     email: "philixbob@gmail.com",
     phone: "23408108850572",
     desc: `Dr. Chuks is a dedicated pediatrician with a 
@@ -32,7 +28,7 @@ export const chatData: IChatData[] = [
   {
     name: "Nurs. Lena Hertz",
     department: "Emergency",
-    img: AppImg.block,
+    img: AppImg.profile.lena,
     email: "lena@celo.org",
     phone: "23408108850573",
     desc: `Dr. Lena is a dedicated pediatrician with a 
@@ -48,7 +44,7 @@ export const chatData: IChatData[] = [
   {
     name: "Dr. Millie Bobbie",
     department: "Orthopedic",
-    img: AppImg.chain,
+    img: AppImg.profile.coffeLady,
     email: "millie@gmail.com",
     phone: "23408108850574",
     desc: `Dr. Millie is a dedicated pediatrician with a 
@@ -64,7 +60,7 @@ export const chatData: IChatData[] = [
   {
     name: "Dr. Raymond Lin",
     department: "Obstetrics",
-    img: AppImg.creditCard,
+    img: AppImg.profile.blackguy,
     email: "raymond@gmail.com",
     phone: "23408108850575",
     desc: `Dr. Chuks is a dedicated pediatrician with a 
@@ -78,9 +74,9 @@ export const chatData: IChatData[] = [
     potential in a nurturing and supportive environment.`,
   },
   {
-    name: "Pharm. Raymond Lin",
+    name: "Pharm. Rena Lin",
     department: "Pharmacy",
-    img: AppImg.creditCard,
+    img: AppImg.profile.blackWoman,
     email: "rayray@gmail.com",
     phone: "23408108850576",
     desc: `Raymond is a knowledgeable and dedicated pharmacist committed to 

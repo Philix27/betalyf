@@ -11,15 +11,12 @@ export class AppImg {
   static person = "/imgs/person.png"
   static phone = "/imgs/phone.png"
 
-  static green = {
-    field: "/grento/greenPanels.jpg",
-    grid: "/grento/grid.jpg",
-    homes: "/grento/homes.jpg",
-    investor: "/grento/investor.jpg",
-    partner: "/grento/partner.jpg",
-    sky: "/grento/sky.jpg",
-    workers: "/grento/workers.jpg",
-    sun: "/grento/sun.jpg",
+  static profile = {
+    blackDude: "/profile/blackDude.jpg",
+    blackguy: "/profile/blackguy.jpg",
+    blackWoman: "/profile/blackWoman.jpeg",
+    coffeLady: "/profile/coffeLady.jpg",
+    lena: "/profile/lena.jpg",
   }
 
   static med = {
